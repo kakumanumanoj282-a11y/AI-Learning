@@ -1,0 +1,3471 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AI Engineer Learning OS</title>
+  <style>
+/* ==========================================================================
+   AI Engineer Learning OS - Modern, Engaging, High-Impact Styles
+   Vibrant Card Grids, Stage Filter Chips, Interactive Milestones, Dark Aesthetic
+   ========================================================================== */
+
+:root {
+  --bg: #0c0e14;
+  --sf: #151924;
+  --sf-card: #131722;
+  --sf-hover: #1c2232;
+  --bd: #272d3d;
+  --bd-hover: #3d465c;
+  --bd-focus: #4c8dff;
+  --tx: #e8ebf4;
+  --tx-dim: #94a3b8;
+  --mu: #9aa3b8;
+
+  --ac: #4c8dff;
+  --ac-hover: #3373eb;
+  --cy: #38d6e8;
+  --gr: #64748b;
+  --bl: #4c8dff;
+  --am: #f5a524;
+  --gn: #2fbf71;
+  --pu: #a855f7;
+
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Menlo, Monaco, Consolas, monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root[data-theme="light"] {
+  --bg: #f4f5fa;
+  --sf: #ffffff;
+  --sf-card: #ffffff;
+  --sf-hover: #f1f4f9;
+  --bd: #d8dcea;
+  --bd-hover: #cbd5e1;
+  --bd-focus: #3b82f6;
+  --tx: #161a26;
+  --tx-dim: #475569;
+  --mu: #64748b;
+  --ac: #3b82f6;
+  --ac-hover: #2563eb;
+  --cy: #07899c;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--tx);
+  font: 14.5px/1.5 var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* Header Navbar */
+header.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--bd);
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 50;
+}
+
+.brand-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--tx);
+  letter-spacing: -0.01em;
+}
+
+nav.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.nav-btn {
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-md);
+  padding: 6px 12px;
+  cursor: pointer;
+  color: var(--tx);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-btn:hover { border-color: var(--ac); background: var(--sf-hover); }
+.nav-btn.active { background: var(--ac); border-color: var(--ac); color: #fff; font-weight: 600; }
+
+.header-right { display: flex; align-items: center; gap: 10px; }
+.search-mini {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-md);
+  padding: 4px 10px;
+}
+.search-mini input { background: transparent; border: none; outline: none; color: var(--tx); font-size: 0.8rem; width: 140px; }
+.search-mini kbd { background: var(--bg); border: 1px solid var(--bd); border-radius: 4px; padding: 1px 5px; font-size: 0.68rem; font-family: var(--font-mono); color: var(--mu); }
+.user-pill { font-size: 0.82rem; color: var(--mu); }
+.btn-theme { background: var(--sf); border: 1px solid var(--bd); border-radius: var(--radius-md); padding: 6px 12px; font-size: 0.82rem; color: var(--tx); cursor: pointer; transition: var(--transition); }
+.btn-theme:hover { border-color: var(--ac); }
+
+/* Main Content Area */
+main#main-content-area {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.view-panel { display: none; }
+.view-panel.active { display: block; animation: fadeIn 0.15s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Cards & Layout */
+.card {
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  margin-bottom: 20px;
+}
+
+/* Dashboard Specific Layout */
+.dash-welcome-card {
+  background: linear-gradient(135deg, rgba(21, 25, 36, 0.98), rgba(28, 34, 50, 0.95));
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-xl);
+  padding: 26px 28px;
+  margin-bottom: 22px;
+}
+
+.dash-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.progress-bar-wrap { margin: 16px 0 10px; }
+.progress-bar { height: 8px; background: var(--bd); border-radius: 999px; overflow: hidden; }
+.progress-bar-fill { display: block; height: 100%; background: linear-gradient(90deg, var(--ac), var(--cy)); border-radius: 999px; transition: width 0.4s ease; }
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 18px 0 14px;
+}
+
+.stat-box {
+  background: var(--sf-card);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-box b { font-size: 1.85rem; font-weight: 800; font-family: var(--font-mono); margin-bottom: 2px; }
+.stat-box span { font-size: 0.78rem; color: var(--mu); text-transform: uppercase; font-weight: 600; letter-spacing: 0.04em; }
+
+/* Continue Learning Hero Card */
+.continue-learning-card {
+  background: var(--sf);
+  border: 2px solid var(--pu);
+  border-radius: var(--radius-xl);
+  padding: 26px 28px;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 24px rgba(168, 85, 247, 0.12);
+}
+
+.continue-title { font-size: 1.55rem; font-weight: 800; color: #fff; margin: 10px 0 8px; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.why-box { background: var(--sf-card); border: 1px solid var(--bd); border-left: 3px solid var(--pu); border-radius: var(--radius-md); padding: 14px 16px; margin-top: 14px; font-size: 0.88rem; line-height: 1.55; }
+
+/* Filter Chips */
+.filter-chip-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.filter-chip {
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--mu);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.filter-chip:hover { border-color: var(--ac); color: var(--tx); }
+.filter-chip.active { background: var(--ac); border-color: var(--ac); color: #fff; }
+
+/* Topic Visual Grid Cards (Modern & Addictive) */
+.topics-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 16px;
+}
+
+.topic-visual-card {
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.topic-visual-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ac);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.topic-visual-card.recommended-card {
+  border-color: var(--pu);
+  background: linear-gradient(135deg, rgba(21, 25, 36, 0.95), rgba(28, 24, 45, 0.95));
+}
+
+/* Stage Stepper Banner */
+.stage-stepper {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 12px 0;
+  margin-bottom: 20px;
+}
+
+.stage-step-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.stage-step-pill:hover { border-color: var(--ac); }
+.stage-step-pill.current-step {
+  border-color: var(--ac);
+  background: rgba(76, 141, 255, 0.12);
+}
+
+/* Roadmap Horizontal Scroll Canvas */
+.roadwrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-lg);
+  background: var(--sf);
+  padding: 16px 14px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.roadwrap::-webkit-scrollbar { height: 8px; }
+.roadwrap::-webkit-scrollbar-track { background: var(--bg); border-radius: 4px; }
+.roadwrap::-webkit-scrollbar-thumb { background: var(--bd); border-radius: 4px; }
+.roadwrap::-webkit-scrollbar-thumb:hover { background: var(--mu); }
+
+/* Buttons & Badges */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+  font-family: inherit;
+  text-decoration: none;
+}
+
+.btn-primary { background: var(--ac); color: #fff; }
+.btn-primary:hover { background: var(--ac-hover); }
+.btn-secondary { background: var(--sf); border-color: var(--bd); color: var(--tx); }
+.btn-secondary:hover { background: var(--sf-hover); border-color: var(--ac); }
+.btn-outline { background: transparent; border-color: var(--bd); color: var(--mu); }
+.btn-outline:hover { color: var(--tx); border-color: var(--tx); }
+.btn-sm { padding: 4px 10px; font-size: 0.78rem; }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.badge-not-started { background: rgba(100, 116, 139, 0.2); color: #94a3b8; }
+.badge-in-progress { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+.badge-needs-revision { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+.badge-mastered { background: rgba(47, 191, 113, 0.2); color: #2fbf71; }
+.badge-recommended { background: rgba(168, 85, 247, 0.25); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
+
+.tag {
+  font-size: 12px;
+  border: 1px solid var(--bd);
+  border-radius: 20px;
+  padding: 2px 9px;
+  color: var(--mu);
+}
+
+/* Modals */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(4, 7, 14, 0.75);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.active { display: flex; }
+.modal-card {
+  background: var(--sf);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-xl);
+  max-width: 650px; width: 100%; max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  padding: 26px;
+  position: relative;
+}
+.modal-close-btn { position: absolute; top: 18px; right: 18px; background: transparent; border: none; color: var(--mu); cursor: pointer; font-size: 1.2rem; }
+
+/* Code Container */
+.code-container {
+  background: #080b12;
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-md);
+  margin: 12px 0;
+  overflow: hidden;
+}
+.code-header { padding: 6px 12px; background: #0f1422; border-bottom: 1px solid var(--bd); display: flex; align-items: center; justify-content: space-between; font-size: 0.72rem; font-family: var(--font-mono); color: var(--mu); }
+.code-pre { padding: 14px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.84rem; line-height: 1.55; color: #38d6e8; }
+.code-output { padding: 10px 14px; background: #090e18; border-top: 1px dashed var(--bd); font-family: var(--font-mono); font-size: 0.78rem; color: #a7f3d0; }
+
+/* Search & Toast */
+.search-results-floating { display: none; position: fixed; top: 55px; right: 80px; width: 440px; max-height: 380px; overflow-y: auto; background: var(--sf); border: 1px solid var(--bd); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); z-index: 60; }
+.search-results-floating.active { display: block; }
+.search-item { padding: 10px 14px; border-bottom: 1px solid var(--bd); cursor: pointer; }
+.search-item:hover { background: var(--sf-hover); }
+
+.toast-container { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 120; }
+.toast { background: var(--ac); color: #fff; padding: 8px 16px; border-radius: var(--radius-md); font-size: 0.85rem; box-shadow: var(--shadow-md); }
+
+select, input, textarea {
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: var(--radius-md);
+  padding: 7px 12px;
+  color: var(--tx);
+  font: inherit;
+  font-size: 0.85rem;
+  outline: none;
+}
+select:focus, input:focus, textarea:focus { border-color: var(--ac); }
+
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Navigation Bar matching reference screenshot -->
+  <header class="app-header">
+    <div class="header-left">
+      <b class="brand-title" onclick="App.navigate('dashboard')" style="cursor: pointer;">AI Engineer Learning OS</b>
+    </div>
+
+    <nav class="header-nav">
+      <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+      <button class="nav-btn" data-view="roadmap">Roadmap</button>
+      <button class="nav-btn" data-view="topics">My Topics</button>
+      <button class="nav-btn" data-view="upload">Upload Notes</button>
+      <button class="nav-btn" data-view="learn">Learn a Topic</button>
+      <button class="nav-btn" data-view="practice">Practice & Quizzes</button>
+      <button class="nav-btn" data-view="projects">Projects</button>
+      <button class="nav-btn" data-view="revision">
+        Revision <span class="nav-pill-count" id="header-rev-count" style="display: none;">0</span>
+      </button>
+      <button class="nav-btn" data-view="analytics">Analytics</button>
+      <button class="nav-btn" data-view="settings">Settings</button>
+    </nav>
+
+    <div class="header-right">
+      <div class="search-mini" onclick="document.getElementById('global-search-input').focus();">
+        <input type="text" id="global-search-input" placeholder="Search (Press /)" autocomplete="off">
+        <kbd>/</kbd>
+      </div>
+      <span class="user-pill">kakumanu-manoj</span>
+      <button class="btn-theme" id="theme-toggle-btn" title="Toggle Theme">Theme</button>
+      <button class="btn-theme" onclick="App.navigate('settings')">Reset</button>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main id="main-content-area">
+    <!-- 1. DASHBOARD VIEW -->
+    <section id="view-dashboard" class="view-panel active"></section>
+
+    <!-- 2. LEARNING ROADMAP VIEW -->
+    <section id="view-roadmap" class="view-panel"></section>
+
+    <!-- 3. MY TOPICS VIEW -->
+    <section id="view-topics" class="view-panel"></section>
+
+    <!-- 4. UPLOAD STUDY MATERIALS VIEW -->
+    <section id="view-upload" class="view-panel"></section>
+
+    <!-- 5. LEARN A TOPIC VIEW -->
+    <section id="view-learn" class="view-panel"></section>
+
+    <!-- 6. PRACTICE & QUIZZES VIEW -->
+    <section id="view-practice" class="view-panel"></section>
+
+    <!-- 7. HANDS-ON PROJECTS VIEW -->
+    <section id="view-projects" class="view-panel"></section>
+
+    <!-- 8. REVISION CENTER VIEW -->
+    <section id="view-revision" class="view-panel"></section>
+
+    <!-- 9. PROGRESS ANALYTICS VIEW -->
+    <section id="view-analytics" class="view-panel"></section>
+
+    <!-- 10. SETTINGS & EXPORT VIEW -->
+    <section id="view-settings" class="view-panel"></section>
+  </main>
+
+  <!-- Global Modal Container -->
+  <div class="modal-overlay" id="global-modal-overlay">
+    <div class="modal-card" id="global-modal-content"></div>
+  </div>
+
+  <!-- Search Results Dropdown -->
+  <div class="search-results-floating" id="search-results-box"></div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script>
+/* --- frontend/js/static_roadmap_data.js --- */
+/**
+ * AI Engineer Learning OS - Static Curriculum Manifest
+ * Embeds all 12 stages, icons, descriptions, and topics for instant static rendering & offline resilience.
+ */
+
+window.STATIC_STAGES = [
+  { id: 1, name: "Programming Foundations", icon: "⚡", badge: "Core Foundation", color: "#38bdf8" },
+  { id: 2, name: "Mathematics for AI", icon: "📐", badge: "Core Foundation", color: "#818cf8" },
+  { id: 3, name: "Data Analysis & Processing", icon: "📊", badge: "Practical Data", color: "#34d399" },
+  { id: 4, name: "Machine Learning", icon: "🤖", badge: "Applied ML", color: "#fbbf24" },
+  { id: 5, name: "Deep Learning", icon: "🧠", badge: "Deep Learning", color: "#f472b6" },
+  { id: 6, name: "Specialized Neural Networks", icon: "🔮", badge: "Architectures", color: "#c084fc" },
+  { id: 7, name: "NLP and Large Language Models", icon: "💬", badge: "Modern LLMs", color: "#38d6e8" },
+  { id: 8, name: "Retrieval-Augmented Generation (RAG)", icon: "🔍", badge: "Production RAG", color: "#2dd4bf" },
+  { id: 9, name: "AI Agents and Tool Use", icon: "🦾", badge: "AI Agents", color: "#a855f7" },
+  { id: 10, name: "Backend and AI App Dev", icon: "🚀", badge: "Engineering Systems", color: "#fb923c" },
+  { id: 11, name: "AI Deployment and MLOps", icon: "📈", badge: "MLOps", color: "#22d3ee" },
+  { id: 12, name: "Advanced AI Engineering", icon: "🛡️", badge: "Advanced Mastery", color: "#f87171" }
+];
+
+window.STATIC_TOPICS = [
+  { id: "py_syntax", stage_id: 1, title: "Python Syntax & Variables", difficulty: "Beginner", estimated_hours: 3, prerequisites: [], importance: "The fundamental building block of all AI engineering code.", what_you_will_do: "Write clean Python scripts, declare variables with explicit types, and execute your first AI scripts." },
+  { id: "py_operators", stage_id: 1, title: "Data Types & Operators", difficulty: "Beginner", estimated_hours: 2, prerequisites: ["py_syntax"], importance: "Underpins mathematical computations inside neural networks.", what_you_will_do: "Perform arithmetic, comparisons, boolean masks, and bitwise operations." },
+  { id: "py_loops", stage_id: 1, title: "Conditions & Loops", difficulty: "Beginner", estimated_hours: 3, prerequisites: ["py_operators"], importance: "Iterating over training batches and token streams.", what_you_will_do: "Write robust if-elif branches, for-loops, and list comprehensions." },
+  { id: "py_functions", stage_id: 1, title: "Functions & Scope", difficulty: "Beginner", estimated_hours: 4, prerequisites: ["py_loops"], importance: "Reusable modular code for training pipelines.", what_you_will_do: "Design modular functions with *args, **kwargs, and pure logic." },
+  { id: "py_data_structures", stage_id: 1, title: "Lists, Tuples, Sets & Dicts", difficulty: "Beginner", estimated_hours: 4, prerequisites: ["py_functions"], importance: "Representing embeddings and token vocabularies.", what_you_will_do: "Select optimal collections, use hash maps for O(1) lookups." },
+  { id: "py_strings", stage_id: 1, title: "String Manipulation & Regex", difficulty: "Beginner", estimated_hours: 3, prerequisites: ["py_data_structures"], importance: "Text cleaning and prompt parsing constitute 60% of LLM work.", what_you_will_do: "Clean messy crawls, parse markdown, and format prompt templates." },
+  { id: "py_errors", stage_id: 1, title: "Error Handling & Debugging", difficulty: "Beginner+", estimated_hours: 3, prerequisites: ["py_functions"], importance: "Production AI pipelines encounter corrupted image files and timeouts.", what_you_will_do: "Write defensive try-except blocks and step through code with pdb." },
+  { id: "py_files", stage_id: 1, title: "File Handling (JSON, CSV, Binary)", difficulty: "Beginner+", estimated_hours: 3, prerequisites: ["py_errors"], importance: "AI models ingest gigabytes of data and save checkpoints.", what_you_will_do: "Read and write JSON, CSV, and binary safetensors files safely." },
+  { id: "py_modules", stage_id: 1, title: "Modules & Packages", difficulty: "Beginner+", estimated_hours: 2, prerequisites: ["py_files"], importance: "Organizing production codebases cleanly across packages.", what_you_will_do: "Structure reusable packages with __init__.py." },
+  { id: "py_oop", stage_id: 1, title: "Object-Oriented Programming (OOP)", difficulty: "Intermediate", estimated_hours: 5, prerequisites: ["py_modules"], importance: "PyTorch models and agent tools are all built as OOP classes.", what_you_will_do: "Create classes, inherit from nn.Module, and override dunder methods." },
+  { id: "py_virtual_envs", stage_id: 1, title: "Virtual Envs & Package Mgmt", difficulty: "Beginner+", estimated_hours: 2, prerequisites: ["py_modules"], importance: "Eliminates 'works on my machine' CUDA dependency conflicts.", what_you_will_do: "Isolate environments with venv/uv and pin exact versions." },
+  { id: "py_git", stage_id: 1, title: "Git & GitHub for AI Projects", difficulty: "Beginner+", estimated_hours: 3, prerequisites: ["py_syntax"], importance: "Industry standard for version controlling AI code and models.", what_you_will_do: "Commit, branch, and configure .gitignore for weights and keys." },
+  { id: "py_terminal", stage_id: 1, title: "Terminal & Shell Usage", difficulty: "Beginner", estimated_hours: 2, prerequisites: [], importance: "Cloud GPUs and Docker containers are controlled via CLI.", what_you_will_do: "Navigate file trees, monitor GPU memory, and pipe commands." },
+
+  { id: "math_vectors_matrices", stage_id: 2, title: "Vectors & Matrices", difficulty: "Beginner+", estimated_hours: 4, prerequisites: ["py_syntax"], importance: "Embeddings, image pixels, and neural weights are all matrices.", what_you_will_do: "Visualize vectors as coordinate arrows and compute matrix transforms." },
+  { id: "math_dot_products", stage_id: 2, title: "Dot Products & Vector Sim", difficulty: "Intermediate", estimated_hours: 3, prerequisites: ["math_vectors_matrices"], importance: "Underpins self-attention, RAG search, and linear models.", what_you_will_do: "Compute dot products and calculate cosine similarity between embeddings." },
+  { id: "math_derivatives_gradients", stage_id: 2, title: "Derivatives & Gradients", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["math_vectors_matrices"], importance: "Gradients tell the neural network which way to nudge weights.", what_you_will_do: "Interpret derivatives as rates of change and compute gradients." },
+  { id: "math_chain_rule", stage_id: 2, title: "The Chain Rule & Backprop", difficulty: "Intermediate+", estimated_hours: 4, prerequisites: ["math_derivatives_gradients"], importance: "The mathematical engine powering modern deep learning.", what_you_will_do: "Calculate error propagation across computational graphs." },
+  { id: "math_probability", stage_id: 2, title: "Probability & Bayes' Theorem", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["math_vectors_matrices"], importance: "AI model outputs are probability distributions.", what_you_will_do: "Calculate conditional probabilities and apply Bayes' Rule." },
+  { id: "math_optimization", stage_id: 2, title: "Optimization & Loss Surfaces", difficulty: "Intermediate", estimated_hours: 3, prerequisites: ["math_derivatives_gradients"], importance: "How models navigate multi-dimensional loss surfaces.", what_you_will_do: "Compare convex bowls with local minima and saddle points." },
+
+  { id: "data_numpy", stage_id: 3, title: "NumPy Vectorized Arrays", difficulty: "Intermediate", estimated_hours: 5, prerequisites: ["py_data_structures", "math_vectors_matrices"], importance: "Replaces slow loops with C-optimized SIMD vectorization.", what_you_will_do: "Perform array broadcasting and high-speed matrix multiplications." },
+  { id: "data_pandas", stage_id: 3, title: "Pandas DataFrames & Series", difficulty: "Intermediate", estimated_hours: 6, prerequisites: ["data_numpy"], importance: "The industry standard for tabular dataset manipulation.", what_you_will_do: "Load datasets, filter rows, and perform groupby aggregations." },
+  { id: "data_cleaning", stage_id: 3, title: "Data Cleaning & Imputation", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["data_pandas"], importance: "Garbage in, garbage out. Real data is riddled with nulls.", what_you_will_do: "Handle missing values, remove duplicates, and detect outliers." },
+  { id: "data_matplotlib", stage_id: 3, title: "Visualization (Matplotlib)", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["data_pandas"], importance: "Visualizing distributions prevents wasted modeling cycles.", what_you_will_do: "Plot histograms, scatter plots, and loss curves." },
+  { id: "data_eda", stage_id: 3, title: "Exploratory Data Analysis", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["data_cleaning", "data_matplotlib"], importance: "Uncovering feature relationships before model selection.", what_you_will_do: "Analyze distributions, compute correlations, and test hypotheses." },
+  { id: "data_encoding", stage_id: 3, title: "Encoding & Feature Scaling", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["data_eda"], importance: "ML models require scaled numeric inputs to converge.", what_you_will_do: "Apply One-Hot Encoding, StandardScaler, and MinMaxScaler." },
+  { id: "data_leakage", stage_id: 3, title: "Data Leakage & Train Splits", difficulty: "Intermediate+", estimated_hours: 3, prerequisites: ["data_encoding"], importance: "Prevents deceptive benchmark scores that fail in production.", what_you_will_do: "Perform stratified splits and fit scalers only on training data." },
+  { id: "data_sql", stage_id: 3, title: "SQL for Data Extraction", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["py_syntax"], importance: "Most enterprise training data lives in relational databases.", what_you_will_do: "Write SELECT, JOIN, GROUP BY, and window functions." },
+
+  { id: "ml_foundations", stage_id: 4, title: "Supervised vs Unsupervised ML", difficulty: "Beginner+", estimated_hours: 3, prerequisites: ["data_eda"], importance: "Knowing when to frame problems as classification or clustering.", what_you_will_do: "Structure features (X) and labels (y) for business problems." },
+  { id: "ml_linear_regression", stage_id: 4, title: "Linear Regression & MSE", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["ml_foundations", "math_derivatives_gradients"], importance: "The classic supervised baseline for continuous prediction.", what_you_will_do: "Derive y = wx + b and calculate Mean Squared Error." },
+  { id: "ml_gradient_descent", stage_id: 4, title: "Gradient Descent Optimization", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["ml_linear_regression", "math_optimization"], importance: "Iteratively updates weights to minimize loss functions.", what_you_will_do: "Implement weight updates: w = w - lr * grad." },
+  { id: "ml_logistic_regression", stage_id: 4, title: "Logistic Regression & Sigmoid", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["ml_gradient_descent", "math_probability"], importance: "Predicting class probabilities with decision thresholds.", what_you_will_do: "Pass linear outputs through Sigmoid and compute Log Loss." },
+  { id: "ml_eval_metrics", stage_id: 4, title: "Precision, Recall & F1-Score", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["ml_logistic_regression"], importance: "Accuracy is deceptive on imbalanced real-world data.", what_you_will_do: "Construct confusion matrices and evaluate ROC-AUC curves." },
+  { id: "ml_trees_forests", stage_id: 4, title: "Decision Trees & Random Forests", difficulty: "Intermediate", estimated_hours: 5, prerequisites: ["ml_eval_metrics"], importance: "Top-performing ensemble baselines for tabular data.", what_you_will_do: "Compute Gini impurity and ensemble trees via bagging." },
+  { id: "ml_gradient_boosting", stage_id: 4, title: "Gradient Boosting (XGBoost)", difficulty: "Intermediate+", estimated_hours: 5, prerequisites: ["ml_trees_forests"], importance: "Gold standard industry benchmark for structured tables.", what_you_will_do: "Train sequential boosted trees on residual errors." },
+  { id: "ml_regularization", stage_id: 4, title: "Overfitting & L1/L2 Regularization", difficulty: "Intermediate+", estimated_hours: 4, prerequisites: ["ml_gradient_descent"], importance: "Ensures models generalize to new unseen test data.", what_you_will_do: "Apply Lasso (L1) and Ridge (L2) weight penalties." },
+
+  { id: "dl_neurons", stage_id: 5, title: "Neurons & Activation Functions", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["ml_logistic_regression"], importance: "The atomic computational unit of neural networks.", what_you_will_do: "Compute z = WX + b and apply ReLU, GELU, and Sigmoid." },
+  { id: "dl_forward_prop", stage_id: 5, title: "Multilayer Perceptrons (MLP)", difficulty: "Intermediate+", estimated_hours: 4, prerequisites: ["dl_neurons"], importance: "Layer-by-layer forward representation propagation.", what_you_will_do: "Trace multi-layer tensor shapes through hidden dimensions." },
+  { id: "dl_backprop", stage_id: 5, title: "Backpropagation & Autograd", difficulty: "Advanced", estimated_hours: 5, prerequisites: ["dl_forward_prop", "math_chain_rule"], importance: "Calculates error gradients across network weights.", what_you_will_do: "Trace backward computational graphs and gradient updates." },
+  { id: "dl_optimizers", stage_id: 5, title: "Optimizers (Adam, AdamW)", difficulty: "Intermediate+", estimated_hours: 4, prerequisites: ["dl_backprop"], importance: "Adaptive learning rate engines accelerating convergence.", what_you_will_do: "Implement Momentum, RMSProp, and AdamW weight decay." },
+  { id: "dl_pytorch_tensors", stage_id: 5, title: "PyTorch Tensors & CUDA GPUs", difficulty: "Intermediate+", estimated_hours: 5, prerequisites: ["data_numpy", "py_oop"], importance: "The primary research and production deep learning framework.", what_you_will_do: "Manage tensor allocations and GPU acceleration." },
+  { id: "dl_training_loop", stage_id: 5, title: "PyTorch DataLoaders & Loops", difficulty: "Advanced", estimated_hours: 6, prerequisites: ["dl_pytorch_tensors", "dl_backprop"], importance: "The universal 5-step neural training loop in industry.", what_you_will_do: "Write Custom Datasets, configure batching, and save checkpoints." },
+
+  { id: "snn_cnn", stage_id: 6, title: "Convolutional Networks (CNNs)", difficulty: "Intermediate+", estimated_hours: 5, prerequisites: ["dl_training_loop"], importance: "The spatial feature extraction backbone of computer vision.", what_you_will_do: "Apply convolutional filters, padding, and max pooling." },
+  { id: "snn_embeddings", stage_id: 6, title: "Embeddings: Meaning to Vectors", difficulty: "Intermediate+", estimated_hours: 4, prerequisites: ["math_dot_products", "dl_pytorch_tensors"], importance: "Maps words, concepts, and images into continuous spaces.", what_you_will_do: "Train Word2Vec and inspect vector semantic geometries." },
+  { id: "snn_attention", stage_id: 6, title: "Attention Mechanism Intuition", difficulty: "Advanced", estimated_hours: 5, prerequisites: ["snn_embeddings", "math_dot_products"], importance: "Eliminates fixed recurrent bottlenecks for sequences.", what_you_will_do: "Calculate pairwise attention weights between all tokens." },
+  { id: "snn_transformers", stage_id: 6, title: "The Transformer Architecture", difficulty: "Advanced", estimated_hours: 6, prerequisites: ["snn_attention"], importance: "The foundation of all modern frontier AI models.", what_you_will_do: "Deconstruct Positional Encodings, Multi-Head Attention, and MLPs." },
+  { id: "snn_qkv", stage_id: 6, title: "Query, Key, and Value (QKV)", difficulty: "Advanced", estimated_hours: 5, prerequisites: ["snn_transformers"], importance: "The core mathematical operation inside every Transformer.", what_you_will_do: "Calculate Attention(Q, K, V) = softmax(QK^T / sqrt(d_k))V." },
+
+  { id: "llm_tokenization", stage_id: 7, title: "Tokenization & Byte-Pair Encoding", difficulty: "Intermediate+", estimated_hours: 4, prerequisites: ["py_strings", "snn_embeddings"], importance: "LLMs do not read words; they process numerical token IDs.", what_you_will_do: "Inspect BPE subword splits and calculate token costs." },
+  { id: "llm_context_windows", stage_id: 7, title: "Context Windows & Sampling", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["llm_tokenization"], importance: "Controlling creativity and deterministic outputs in production.", what_you_will_do: "Tune Temperature, Top-P, and frequency penalties." },
+  { id: "llm_prompt_engineering", stage_id: 7, title: "Prompt Engineering & Few-Shot", difficulty: "Intermediate", estimated_hours: 4, prerequisites: ["llm_context_windows"], importance: "Extracting high-precision reasoning without fine-tuning.", what_you_will_do: "Build Chain-of-Thought prompts and few-shot formatting." },
+  { id: "llm_structured_outputs", stage_id: 7, title: "Structured JSON Outputs (Pydantic)", difficulty: "Intermediate+", estimated_hours: 5, prerequisites: ["llm_prompt_engineering", "py_oop"], importance: "AI apps need strictly validated JSON, not conversational prose.", what_you_will_do: "Enforce JSON schemas using Pydantic models and retry loops." },
+  { id: "llm_api_integration", stage_id: 7, title: "Streaming APIs & Token Budgets", difficulty: "Intermediate+", estimated_hours: 5, prerequisites: ["llm_structured_outputs", "py_errors"], importance: "Integrating AI APIs into production with instant UI streaming.", what_you_will_do: "Implement Server-Sent Events (SSE) and exponential backoff." },
+
+  { id: "rag_foundations", stage_id: 8, title: "RAG Foundations & Knowledge Cutoffs", difficulty: "Intermediate", estimated_hours: 3, prerequisites: ["llm_prompt_engineering"], importance: "Connects LLMs to private internal documents reliably.", what_you_will_do: "Diagram the end-to-end RAG indexing and retrieval pipeline." },
+  { id: "rag_chunking", stage_id: 8, title: "Document Parsing & Chunking", difficulty: "Intermediate+", estimated_hours: 4, prerequisites: ["rag_foundations", "py_strings"], importance: "Bad chunks destroy retrieval quality.", what_you_will_do: "Implement recursive character chunking with semantic overlap." },
+  { id: "rag_vector_db", stage_id: 8, title: "Vector Databases & HNSW Indexing", difficulty: "Advanced", estimated_hours: 5, prerequisites: ["rag_chunking", "snn_embeddings"], importance: "Searching millions of embeddings in sub-second latency.", what_you_will_do: "Work with vector stores (Qdrant, pgvector) and ANN indexes." },
+  { id: "rag_hybrid_search", stage_id: 8, title: "Hybrid Search (BM25 + Dense)", difficulty: "Advanced", estimated_hours: 4, prerequisites: ["rag_vector_db"], importance: "Fixes vector search failures on acronyms and product codes.", what_you_will_do: "Combine BM25 and dense vectors with Reciprocal Rank Fusion." },
+
+  { id: "agent_foundations", stage_id: 9, title: "Chatbots vs Autonomous Agents", difficulty: "Intermediate+", estimated_hours: 3, prerequisites: ["llm_api_integration"], importance: "The transition from passive responders to active systems.", what_you_will_do: "Diagram the ReAct loop: Observe -> Think -> Act -> Feedback." },
+  { id: "agent_tools_calling", stage_id: 9, title: "Tools & Function Calling", difficulty: "Advanced", estimated_hours: 5, prerequisites: ["agent_foundations", "llm_structured_outputs"], importance: "Empowers models to execute code, search, and call APIs.", what_you_will_do: "Define JSON tool schemas and execute sandbox tool calls." },
+  { id: "agent_state_memory", stage_id: 9, title: "Agent Memory & State Graphs", difficulty: "Advanced", estimated_hours: 4, prerequisites: ["agent_tools_calling"], importance: "Retaining context across complex multi-turn workflows.", what_you_will_do: "Build short-term buffers and episodic memory systems." },
+
+  { id: "be_fastapi", stage_id: 10, title: "FastAPI & REST APIs for AI", difficulty: "Intermediate+", estimated_hours: 5, prerequisites: ["py_oop", "py_errors"], importance: "The premier framework for serving machine learning models.", what_you_will_do: "Build async REST endpoints and auto-generate OpenAPI docs." },
+  { id: "be_docker", stage_id: 10, title: "Docker Containers for AI Apps", difficulty: "Intermediate+", estimated_hours: 5, prerequisites: ["py_terminal", "py_virtual_envs"], importance: "Packages libraries, CUDA drivers, and code portably.", what_you_will_do: "Write multi-stage Dockerfiles and containerize models." },
+
+  { id: "ops_model_serving", stage_id: 11, title: "Model Serving (vLLM & ONNX)", difficulty: "Advanced", estimated_hours: 5, prerequisites: ["dl_training_loop", "be_docker"], importance: "Provides 5-10x higher throughput than raw Python.", what_you_will_do: "Configure vLLM continuous batching and ONNX runtimes." },
+  { id: "ops_drift_detection", stage_id: 11, title: "Data Drift & Live Monitoring", difficulty: "Advanced", estimated_hours: 4, prerequisites: ["ml_eval_metrics", "math_probability"], importance: "Catches silent model decay before it causes damage.", what_you_will_do: "Implement Population Stability Index (PSI) drift alarms." },
+
+  { id: "adv_lora_peft", stage_id: 12, title: "Fine-Tuning with LoRA / PEFT", difficulty: "Master", estimated_hours: 6, prerequisites: ["dl_backprop", "snn_transformers"], importance: "Adapt 7B-70B models on single GPUs by training rank adapters.", what_you_will_do: "Configure LoRA rank r and alpha, and train adapters." },
+  { id: "adv_security_prompt_injection", stage_id: 12, title: "AI Security & Injection Defense", difficulty: "Advanced+", estimated_hours: 4, prerequisites: ["llm_prompt_engineering"], importance: "Defending against the #1 OWASP LLM vulnerability.", what_you_will_do: "Simulate indirect prompt injections and deploy input guards." }
+];
+
+
+
+/* --- frontend/js/api.js --- */
+/**
+ * AI Engineer Learning OS - Universal API Client & Static Fallback Engine
+ * Communicates with backend REST API when available, and seamlessly falls back
+ * to in-browser local persistence if deployed on static web hosts (Vercel, Netlify, GitHub Pages).
+ */
+
+const API = {
+  baseUrl: '',
+
+  async request(endpoint, options = {}) {
+    const defaultHeaders = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    };
+
+    try {
+      const response = await fetch(`${this.baseUrl}${endpoint}`, {
+        ...options,
+        headers: {
+          ...defaultHeaders,
+          ...(options.headers || {})
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (err) {
+      // Fallback for static hosts (Vercel static / GitHub Pages)
+      return this.handleStaticFallback(endpoint, options);
+    }
+  },
+
+  // In-memory / localStorage fallback when running purely as static frontend
+  handleStaticFallback(endpoint, options) {
+    const cleanEndpoint = endpoint.split('?')[0].split('#')[0];
+    const cachedData = localStorage.getItem('aieos_local_db');
+    let localDB = cachedData ? JSON.parse(cachedData) : {
+      topics_progress: {},
+      quiz_history: {},
+      project_progress: {},
+      stats: { total_topics: 60, mastered: 0, in_progress: 0, needs_revision: 0, not_started: 60, completion_percentage: 0 }
+    };
+
+    if (cleanEndpoint === '/api/health') {
+      return { status: 'healthy (static mode)', storage: 'Client LocalStorage' };
+    }
+
+    if (cleanEndpoint === '/api/roadmap') {
+      return { stages: window.STATIC_STAGES || [], topics: window.STATIC_TOPICS || [] };
+    }
+
+    if (cleanEndpoint === '/api/progress') {
+      return localDB;
+    }
+
+    if (cleanEndpoint === '/api/progress/topic' && options.method === 'POST') {
+      const body = JSON.parse(options.body || '{}');
+      const tid = body.topic_id;
+      if (tid) {
+        localDB.topics_progress[tid] = {
+          topic_id: tid,
+          status: body.status || 'in_progress',
+          confidence_rating: body.confidence_rating || 3,
+          personal_notes: body.personal_notes || '',
+          last_studied_date: new Date().toISOString()
+        };
+        // Recompute stats
+        const allT = window.STATIC_TOPICS || [];
+        const m = Object.values(localDB.topics_progress).filter(p => p.status === 'mastered').length;
+        const inp = Object.values(localDB.topics_progress).filter(p => p.status === 'in_progress').length;
+        const rev = Object.values(localDB.topics_progress).filter(p => p.status === 'needs_revision').length;
+        localDB.stats = {
+          total_topics: allT.length,
+          mastered: m,
+          in_progress: inp,
+          needs_revision: rev,
+          not_started: allT.length - m - inp - rev,
+          completion_percentage: Math.round((m / Math.max(allT.length, 1)) * 100)
+        };
+        localStorage.setItem('aieos_local_db', JSON.stringify(localDB));
+      }
+      return { success: true };
+    }
+
+    if (cleanEndpoint === '/api/recommendation') {
+      const allT = window.STATIC_TOPICS || [];
+      const first = allT[0] || { id: 'py_syntax', title: 'Python Syntax and Variables', stage_id: 1, difficulty: 'Beginner', estimated_hours: 3 };
+      return {
+        recommended_topic: first,
+        reason: 'Essential foundational starting point for your AI Engineering journey.',
+        satisfied_prerequisites: []
+      };
+    }
+
+    if (cleanEndpoint.startsWith('/api/topic/')) {
+      const tid = cleanEndpoint.replace('/api/topic/', '');
+      const t = (window.STATIC_TOPICS || []).find(x => x.id === tid) || { id: tid, title: tid, stage_id: 1, key_concepts: [] };
+      return {
+        topic: t,
+        stage: (window.STATIC_STAGES || [])[(t.stage_id || 1) - 1] || { id: 1, name: 'Foundations' },
+        lesson: {
+          part1_simple_explanation: { what_it_is: t.importance || t.title, why_it_exists: 'Essential for AI engineering workflows.', problem_it_solves: 'Eliminates errors.', real_world_use: 'Used across production AI systems.' },
+          part2_analogy: { analogy_title: 'Intuitive Model', story: 'Think of this like an essential instrument in an engineer toolbox.', technical_difference: 'Executes in software.' },
+          part3_visual_diagram: { title: `${t.title} Flow`, nodes: [{ label: 'Input', color: '#38bdf8' }, { label: 'Process', color: '#a855f7' }, { label: 'Output', color: '#22c55e' }], flow_steps: ['1. Data enters.', '2. Core logic executes.', '3. Emitted downstream.'] },
+          part4_mechanism: ['Initialize inputs.', 'Execute transformation.', 'Validate output.'],
+          part5_code: { beginner_example: { title: `${t.title} Demo`, code: `# Hands on with ${t.title}
+print('Ready to learn ${t.title}')`, explanation: 'Simple demonstration code.', expected_output: `Ready to learn ${t.title}` } },
+          part6_when_to_use: { use_cases: ['Foundation learning', 'Production ML'] },
+          part7_problems_engineers_face: [{ problem: 'Configuration errors', symptoms: 'Fails to run', causes: 'Missing parameters', diagnosis: 'Inspect logs', fix: 'Add proper inputs', prevention: 'Unit test' }],
+          part8_knowledge_check: {
+            beginner_questions: [
+              { question: `What is the primary role of ${t.title}?`, options: ['Core foundation for AI workflows', 'Irrelevant', 'Hardware only'], correct_idx: 0, explanation: 'Forms the core foundation.' },
+              { question: 'Why is it important?', options: ['Ensures reliability and scalability', 'No reason', 'Just for fun'], correct_idx: 0, explanation: 'Prevents downstream bottlenecks.' }
+            ]
+          }
+        }
+      };
+    }
+
+    if (cleanEndpoint === '/api/revisions') {
+      return { due_today: [], overdue: [], needs_revision: [], weak_concepts: [], counts: { due_today_count: 0, overdue_count: 0, needs_revision_count: 0, weak_concepts_count: 0 } };
+    }
+
+    if (cleanEndpoint === '/api/projects') {
+      return { projects: [] };
+    }
+
+    return {};
+  },
+
+  async getHealth() { return this.request('/api/health'); },
+  async getRoadmap() { return this.request('/api/roadmap'); },
+  async getProgress() { return this.request('/api/progress'); },
+  async updateTopicProgress(payload) { return this.request('/api/progress/topic', { method: 'POST', body: JSON.stringify(payload) }); },
+  async getRecommendation() { return this.request('/api/recommendation'); },
+  async getTopicLesson(topicId) { return this.request(`/api/topic/${encodeURIComponent(topicId.split('#')[0].split('?')[0])}`); },
+  async getPrerequisitesTree(topicId) { return this.request(`/api/prerequisites/${encodeURIComponent(topicId.split('#')[0].split('?')[0])}`); },
+  async submitQuiz(payload) { return this.request('/api/quiz/submit', { method: 'POST', body: JSON.stringify(payload) }); },
+  async getRevisions() { return this.request('/api/revisions'); },
+  async getProjects() { return this.request('/api/projects'); },
+  async updateProjectStatus(payload) { return this.request('/api/projects/status', { method: 'POST', body: JSON.stringify(payload) }); },
+  async uploadStudyMaterial(payload) { return this.request('/api/upload', { method: 'POST', body: JSON.stringify(payload) }); },
+  async confirmUploadTopics(payload) { return this.request('/api/upload/confirm', { method: 'POST', body: JSON.stringify(payload) }); },
+  async exportData() { return this.request('/api/export'); },
+  async importData(payload) { return this.request('/api/import', { method: 'POST', body: JSON.stringify(payload) }); },
+  async resetData() { return this.request('/api/reset', { method: 'POST', body: JSON.stringify({}) }); }
+};
+
+
+/* --- frontend/js/roadmap_view.js --- */
+/**
+ * AI Engineer Learning OS - Interactive Learning Roadmap View
+ * Renders the multi-stage horizontal dependency node graph with smooth curved bezier arrows,
+ * status color-coding, interactive hover highlights, and direct navigation to topic lessons.
+ */
+
+const RoadmapView = {
+  activeHoverId: null,
+
+  render(container, state) {
+    const { stages, topics, progress, recommendation } = state;
+    const progressMap = progress?.topics_progress || {};
+    const recommendedId = recommendation?.recommended_topic?.id;
+
+    // Dimensions & Grid metrics
+    const cw = 175; // column width
+    const nw = 148; // node width
+    const rh = 52;  // row height
+    const pos = {};
+    const cnt = {};
+
+    // Group topics by stage and compute coordinates
+    topics.forEach(t => {
+      // stages are 1-indexed in topics (1 to 12), map to 0-indexed column (0 to 11)
+      const stageIdx = (t.stage_id ? t.stage_id - 1 : t.stage) || 0;
+      const i = cnt[stageIdx] || 0;
+      cnt[stageIdx] = i + 1;
+      pos[t.id] = {
+        x: stageIdx * cw + 16,
+        y: 45 + i * rh,
+        stageIdx: stageIdx
+      };
+    });
+
+    const maxRows = Math.max(...Object.values(cnt), 10);
+    const H = maxRows * rh + 65;
+    const W = 12 * cw + 40;
+
+    // Generate Stage Column Headers
+    const stageNames = [
+      "1. Programming", "2. Math for AI", "3. Data Analysis",
+      "4. Machine Learning", "5. Deep Learning", "6. Specialized Nets",
+      "7. NLP & LLMs", "8. RAG", "9. Agents",
+      "10. Backend", "11. MLOps", "12. Advanced"
+    ];
+
+    let headerSvg = "";
+    stageNames.forEach((sName, i) => {
+      const x = i * cw + 16;
+      headerSvg += `
+        <text x="${x}" y="24" font-size="12" font-weight="700" fill="#94a3b8" font-family="'Plus Jakarta Sans', system-ui, sans-serif">
+          ${sName}
+        </text>
+      `;
+    });
+
+    // Generate Connecting Arrows (Curved cubic beziers)
+    let edgesSvg = "";
+    topics.forEach(t => {
+      (t.prerequisites || t.pre || []).forEach(pId => {
+        const a = pos[pId];
+        const b = pos[t.id];
+        if (!a || !b) return;
+
+        const y1 = a.y + 17;
+        const y2 = b.y + 17;
+
+        let pathD = "";
+        if (a.stageIdx === b.stageIdx) {
+          // Same column curve out to right and back
+          pathD = `M ${a.x + nw} ${y1} C ${a.x + nw + 35} ${y1}, ${b.x + nw + 35} ${y2}, ${b.x + nw} ${y2}`;
+        } else {
+          // Inter-column cubic bezier
+          const midX = (a.x + nw + b.x) / 2;
+          pathD = `M ${a.x + nw} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${b.x} ${y2}`;
+        }
+
+        edgesSvg += `
+          <path class="roadmap-edge edge-from-${pId} edge-to-${t.id}"
+                data-from="${pId}" data-to="${t.id}"
+                d="${pathD}"
+                fill="none"
+                stroke="#64748b"
+                stroke-width="1.3"
+                stroke-opacity="0.32"
+                marker-end="url(#ar)" />
+        `;
+      });
+    });
+
+    // Generate Topic Nodes
+    let nodesSvg = "";
+    topics.forEach(t => {
+      const p = pos[t.id];
+      if (!p) return;
+
+      const userProg = progressMap[t.id] || { status: "not_started" };
+      const status = userProg.status || "not_started";
+      const isRecommended = (t.id === recommendedId);
+
+      // Color mapping matching prompt & reference:
+      // Gray=Not started, Blue=In progress, Amber=Needs revision, Green=Mastered, Purple=Recommended next
+      let strokeColor = "#475569";
+      let fillBg = "rgba(71, 85, 105, 0.16)";
+      let textColor = "#f1f5f9";
+      let strokeWidth = "1.5";
+
+      if (isRecommended) {
+        strokeColor = "#a855f7"; // Purple
+        fillBg = "rgba(168, 85, 247, 0.22)";
+        strokeWidth = "2.5";
+      } else if (status === "mastered") {
+        strokeColor = "#22c55e"; // Green
+        fillBg = "rgba(34, 197, 94, 0.18)";
+      } else if (status === "in_progress") {
+        strokeColor = "#3b82f6"; // Blue
+        fillBg = "rgba(59, 130, 246, 0.20)";
+      } else if (status === "needs_revision") {
+        strokeColor = "#f59e0b"; // Amber
+        fillBg = "rgba(245, 158, 11, 0.20)";
+      }
+
+      const displayName = t.title || t.name || t.id;
+      const truncatedName = displayName.length > 21 ? displayName.slice(0, 19) + "…" : displayName;
+
+      nodesSvg += `
+        <g class="roadmap-node-g"
+           id="node-g-${t.id}"
+           data-topic-id="${t.id}"
+           tabindex="0"
+           role="button"
+           style="cursor: pointer;"
+           onclick="App.openTopicLesson('${t.id}')">
+          <title>${displayName} (${status.replace('_', ' ')})&#10;${t.importance || ''}</title>
+          
+          <rect id="rect-${t.id}"
+                x="${p.x}" y="${p.y}"
+                width="${nw}" height="35"
+                rx="8" ry="8"
+                fill="${fillBg}"
+                stroke="${strokeColor}"
+                stroke-width="${strokeWidth}"
+                style="transition: all 0.2s ease;" />
+
+          <text x="${p.x + 10}" y="${p.y + 22}"
+                font-size="12"
+                font-weight="500"
+                fill="${textColor}"
+                font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif"
+                pointer-events="none">
+            ${truncatedName}
+          </text>
+        </g>
+      `;
+    });
+
+    let html = `
+      <!-- Header Card matching reference -->
+      <div class="card" style="padding: 22px 26px; margin-bottom: 20px;">
+        <h1 style="font-size: 1.55rem; font-weight: 800; color: #fff; margin-bottom: 4px;">Learning roadmap</h1>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 14px;">
+          Arrows point from a prerequisite to the topic that depends on it. Click a node to open it. Scroll sideways to see all stages.
+        </p>
+
+        <!-- Color Legend Row -->
+        <div class="leg" style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; font-size: 0.82rem;">
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <i style="width: 10px; height: 10px; border-radius: 3px; background: #64748b; display: inline-block;"></i>
+            <span>Not Started</span>
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <i style="width: 10px; height: 10px; border-radius: 3px; background: #3b82f6; display: inline-block;"></i>
+            <span>In Progress</span>
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <i style="width: 10px; height: 10px; border-radius: 3px; background: #f59e0b; display: inline-block;"></i>
+            <span>Needs Revision</span>
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <i style="width: 10px; height: 10px; border-radius: 3px; background: #22c55e; display: inline-block;"></i>
+            <span>Mastered</span>
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 6px;">
+            <i style="width: 10px; height: 10px; border-radius: 3px; background: #a855f7; box-shadow: 0 0 6px #a855f7; display: inline-block;"></i>
+            <span style="font-weight: 600; color: #c084fc;">Recommended next</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Horizontal Side-Scrolling Roadmap Container matching reference -->
+      <div class="roadwrap" style="
+        overflow-x: auto;
+        overflow-y: hidden;
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        background: #0d111a;
+        padding: 16px 12px;
+        box-shadow: var(--shadow-sm);
+        position: relative;
+      ">
+        <svg width="${W}" height="${H}" role="img" aria-label="Interactive AI Roadmap Graph" style="display: block;">
+          <defs>
+            <marker id="ar" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 8 4 L 0 8 z" fill="#64748b" opacity="0.6"/>
+            </marker>
+            <marker id="ar-highlight-in" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 0 L 8 4 L 0 8 z" fill="#38bdf8"/>
+            </marker>
+            <marker id="ar-highlight-out" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+              <path d="M 0 0 L 8 4 L 0 8 z" fill="#a855f7"/>
+            </marker>
+          </defs>
+
+          <!-- Stage Column Headers -->
+          ${headerSvg}
+
+          <!-- Prerequisite Curves -->
+          <g id="edges-group">
+            ${edgesSvg}
+          </g>
+
+          <!-- Nodes -->
+          <g id="nodes-group">
+            ${nodesSvg}
+          </g>
+        </svg>
+      </div>
+    `;
+
+    container.innerHTML = html;
+    this.attachGraphInteractions(container);
+  },
+
+  attachGraphInteractions(container) {
+    const nodeGroups = container.querySelectorAll('.roadmap-node-g');
+    const edges = container.querySelectorAll('.roadmap-edge');
+
+    nodeGroups.forEach(g => {
+      const topicId = g.getAttribute('data-topic-id');
+      const rect = g.querySelector('rect');
+
+      g.addEventListener('mouseenter', () => {
+        // Dim all edges slightly
+        edges.forEach(e => {
+          e.style.strokeOpacity = '0.08';
+          e.style.strokeWidth = '1';
+        });
+
+        // Highlight incoming prerequisite edges (in Cyan)
+        const inEdges = container.querySelectorAll(`.edge-to-${topicId}`);
+        inEdges.forEach(e => {
+          e.style.stroke = '#38bdf8';
+          e.style.strokeWidth = '2.5';
+          e.style.strokeOpacity = '1';
+          e.setAttribute('marker-end', 'url(#ar-highlight-in)');
+        });
+
+        // Highlight outgoing dependent edges (in Purple)
+        const outEdges = container.querySelectorAll(`.edge-from-${topicId}`);
+        outEdges.forEach(e => {
+          e.style.stroke = '#a855f7';
+          e.style.strokeWidth = '2.5';
+          e.style.strokeOpacity = '1';
+          e.setAttribute('marker-end', 'url(#ar-highlight-out)');
+        });
+
+        if (rect) {
+          rect.style.filter = 'drop-shadow(0 0 8px rgba(56, 189, 248, 0.4))';
+        }
+      });
+
+      g.addEventListener('mouseleave', () => {
+        // Reset all edges
+        edges.forEach(e => {
+          e.style.stroke = '#64748b';
+          e.style.strokeWidth = '1.3';
+          e.style.strokeOpacity = '0.32';
+          e.setAttribute('marker-end', 'url(#ar)');
+        });
+
+        if (rect) {
+          rect.style.filter = 'none';
+        }
+      });
+    });
+  }
+};
+
+
+/* --- frontend/js/lesson_view.js --- */
+/**
+ * AI Engineer Learning OS - 9-Part Topic Lesson View
+ * Strictly renders the 9 comprehensive parts specified in Section 8
+ * with interactive SVG diagrams, runnable code examples, problem-solving, and knowledge checks.
+ */
+
+const LessonView = {
+  currentTopicId: null,
+  lessonData: null,
+  activeDiagramStep: 0,
+
+  async render(container, topicId, state) {
+    let cleanId = topicId;
+    let anchor = null;
+    if (cleanId.includes('#')) {
+      const parts = cleanId.split('#');
+      cleanId = parts[0];
+      anchor = parts[1];
+    }
+    this.currentTopicId = cleanId;
+    container.innerHTML = `
+      <div style="text-align: center; padding: 60px 0;">
+        <div style="font-size: 1.1rem; color: var(--cy); font-weight: 600;">Loading structured lesson...</div>
+        <p style="color: var(--mu); font-size: 0.85rem; margin-top: 6px;">Preparing visual diagrams, runnable code, and quizzes.</p>
+      </div>
+    `;
+
+    try {
+      const data = await API.getTopicLesson(cleanId);
+      this.lessonData = data;
+      this.renderContent(container, state);
+      if (anchor) {
+        setTimeout(() => {
+          const el = document.getElementById(anchor);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } catch (err) {
+      container.innerHTML = `
+        <div class="card" style="border-color: var(--accent-rose); padding: 30px; text-align: center;">
+          <h2 style="color: var(--accent-rose);">Failed to load lesson</h2>
+          <p style="color: var(--text-muted); margin: 10px 0 20px;">${err.message}</p>
+          <button class="btn btn-secondary" onclick="App.navigate('roadmap')">← Return to Roadmap</button>
+        </div>
+      `;
+    }
+  },
+
+  renderContent(container, state) {
+    const { topic, stage, lesson } = this.lessonData;
+    const progressMap = state?.progress?.topics_progress || {};
+    const userProgress = progressMap[topic.id] || { status: 'not_started', confidence_rating: 1, personal_notes: '' };
+
+    const p1 = lesson.part1_simple_explanation || {};
+    const p2 = lesson.part2_analogy || {};
+    const p3 = lesson.part3_visual_diagram || {};
+    const p4 = lesson.part4_mechanism || [];
+    const p5 = lesson.part5_code || {};
+    const p6 = lesson.part6_when_to_use || {};
+    const p7 = lesson.part7_problems_engineers_face || [];
+    const p8 = lesson.part8_knowledge_check || {};
+
+    let html = `
+      <!-- Breadcrumb & Topic Header -->
+      <div style="margin-bottom: 24px;">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--text-dim); margin-bottom: 8px;">
+          <a href="#" onclick="event.preventDefault(); App.navigate('roadmap');" style="color: var(--text-muted); text-decoration: none;">Roadmap</a>
+          <span>/</span>
+          <span>Stage ${stage.id}: ${stage.name}</span>
+          <span>/</span>
+          <span style="color: var(--accent-blue);">${topic.title}</span>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <span class="badge badge-${userProgress.status.replace('_', '-')}">${userProgress.status.replace('_', ' ').toUpperCase()}</span>
+              <span class="badge" style="background: var(--bg-card-subtle); color: var(--accent-cyan); font-family: var(--font-mono);">${topic.difficulty}</span>
+              <span class="badge" style="background: var(--bg-card-subtle); color: var(--text-dim); font-family: var(--font-mono);">${topic.estimated_hours} Hours Est.</span>
+            </div>
+            <h1 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; color: #fff;">${topic.title}</h1>
+            <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 900px; margin-top: 6px;">${topic.what_you_will_do}</p>
+          </div>
+
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <button class="btn btn-secondary btn-sm" onclick="App.showPrerequisitesModal('${topic.id}')">
+              Review Prerequisites (${topic.prerequisites.length})
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="document.getElementById('part9-completion').scrollIntoView({behavior: 'smooth'})">
+              Update Status & Notes ↓
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs across 9 Parts -->
+      <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 24px; border-bottom: 1px solid var(--border-subtle);">
+        <a href="#part1-explanation" class="btn btn-outline btn-sm">1. Simple Explanation</a>
+        <a href="#part2-analogy" class="btn btn-outline btn-sm">2. Real-World Analogy</a>
+        <a href="#part3-visual" class="btn btn-outline btn-sm">3. Visual Diagram</a>
+        <a href="#part4-mechanism" class="btn btn-outline btn-sm">4. Step-by-Step Mechanism</a>
+        <a href="#part5-code" class="btn btn-outline btn-sm">5. Code Demonstration</a>
+        <a href="#part6-when" class="btn btn-outline btn-sm">6. When & Why to Use</a>
+        <a href="#part7-problems" class="btn btn-outline btn-sm">7. Problems Engineers Face</a>
+        <a href="#part8-quiz" class="btn btn-outline btn-sm">8. Knowledge Check</a>
+        <a href="#part9-completion" class="btn btn-outline btn-sm">9. Completion & Evidence</a>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 32px;">
+
+        <!-- PART 1: Simple Explanation -->
+        <section id="part1-explanation" class="card">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">PART 1</span>
+              <h2 class="card-title" style="margin-top: 4px;">Simple English Explanation</h2>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 20px;">
+            <div style="background-color: var(--bg-card-subtle); padding: 16px; border-radius: var(--radius-md); border-left: 3px solid var(--accent-blue);">
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase;">What It Is</div>
+              <p style="font-size: 0.88rem; color: var(--text-main); margin-top: 4px;">${p1.what_it_is || ''}</p>
+            </div>
+            <div style="background-color: var(--bg-card-subtle); padding: 16px; border-radius: var(--radius-md); border-left: 3px solid var(--accent-violet);">
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-violet); text-transform: uppercase;">Why It Exists</div>
+              <p style="font-size: 0.88rem; color: var(--text-main); margin-top: 4px;">${p1.why_it_exists || ''}</p>
+            </div>
+            <div style="background-color: var(--bg-card-subtle); padding: 16px; border-radius: var(--radius-md); border-left: 3px solid var(--accent-cyan);">
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase;">Problem It Solves</div>
+              <p style="font-size: 0.88rem; color: var(--text-main); margin-top: 4px;">${p1.problem_it_solves || ''}</p>
+            </div>
+            <div style="background-color: var(--bg-card-subtle); padding: 16px; border-radius: var(--radius-md); border-left: 3px solid var(--accent-green);">
+              <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-green); text-transform: uppercase;">Where Used in Real AI</div>
+              <p style="font-size: 0.88rem; color: var(--text-main); margin-top: 4px;">${p1.real_world_use || ''}</p>
+            </div>
+          </div>
+
+          ${p1.glossary && p1.glossary.length > 0 ? `
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+              <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px;">Progressive Technical Glossary</h3>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                ${p1.glossary.map(g => `
+                  <div style="font-size: 0.85rem;">
+                    <strong style="color: var(--accent-cyan); font-family: var(--font-mono);">${g.term}:</strong>
+                    <span style="color: var(--text-muted); margin-left: 6px;">${g.definition}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+        </section>
+
+        <!-- PART 2: Real-World Analogy -->
+        <section id="part2-analogy" class="card">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: #c084fc;">PART 2</span>
+              <h2 class="card-title" style="margin-top: 4px;">Real-World Analogy</h2>
+            </div>
+          </div>
+          <div style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.05)); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: var(--radius-lg); padding: 22px;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 8px;">${p2.analogy_title || 'Mental Model'}</h3>
+            <p style="font-size: 0.92rem; color: var(--text-main); line-height: 1.65; margin-bottom: 16px;">${p2.story || ''}</p>
+            <div style="background-color: var(--bg-card); border-left: 3px solid var(--accent-amber); padding: 12px 16px; border-radius: var(--radius-sm);">
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--accent-amber); text-transform: uppercase;">Clear Technical Difference:</span>
+              <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">${p2.technical_difference || ''}</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 3: Visual Explanation (Interactive Diagram) -->
+        <section id="part3-visual" class="card">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee;">PART 3</span>
+              <h2 class="card-title" style="margin-top: 4px;">Interactive Visual Diagram</h2>
+              <div class="card-subtitle">${p3.title || 'Data Flow Architecture'}</div>
+            </div>
+          </div>
+
+          <div class="interactive-diagram-box">
+            <!-- Dynamic SVG Rendering -->
+            <svg id="lesson-dynamic-svg" width="100%" height="220" viewBox="0 0 800 220" style="max-width: 900px; margin: 0 auto; display: block;">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b" />
+                </marker>
+                <marker id="arrow-active" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6" />
+                </marker>
+              </defs>
+
+              ${this.generateDiagramSvg(p3.nodes || [])}
+            </svg>
+
+            <!-- Step by Step Revealer / Data Flow Player -->
+            ${p3.flow_steps && p3.flow_steps.length > 0 ? `
+              <div style="margin-top: 20px; text-align: left; background-color: var(--bg-card); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 0.75rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase;">Data Movement Step-by-Step</span>
+                  <div style="display: flex; gap: 8px;">
+                    <button class="btn btn-secondary btn-sm" id="btn-prev-diagram-step">← Prev</button>
+                    <button class="btn btn-primary btn-sm" id="btn-next-diagram-step">Next Step →</button>
+                  </div>
+                </div>
+                <div id="diagram-active-step-text" style="font-size: 0.88rem; color: var(--text-main); font-weight: 500; min-height: 40px; display: flex; align-items: center;">
+                  ${p3.flow_steps[0]}
+                </div>
+              </div>
+            ` : ''}
+
+            <!-- Misconceptions Box -->
+            ${p3.misconceptions && p3.misconceptions.length > 0 ? `
+              <div style="margin-top: 14px; text-align: left; background-color: rgba(245, 158, 11, 0.08); border-left: 3px solid var(--accent-amber); padding: 12px 16px; border-radius: var(--radius-sm);">
+                <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent-amber); text-transform: uppercase;">Common Architecture Misconceptions</div>
+                ${p3.misconceptions.map(m => `<p style="font-size: 0.82rem; color: var(--text-main); margin-top: 4px;">${m}</p>`).join('')}
+              </div>
+            ` : ''}
+          </div>
+        </section>
+
+        <!-- PART 4: Step-by-Step Mechanism -->
+        <section id="part4-mechanism" class="card">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">PART 4</span>
+              <h2 class="card-title" style="margin-top: 4px;">Step-by-Step Technical Mechanism</h2>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            ${p4.map((step, idx) => `
+              <div style="display: flex; align-items: flex-start; gap: 14px; background-color: var(--bg-card-subtle); padding: 14px 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <span style="width: 28px; height: 28px; border-radius: 50%; background-color: var(--accent-blue-subtle); color: var(--accent-blue); font-weight: 800; font-family: var(--font-mono); font-size: 0.85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  ${idx + 1}
+                </span>
+                <span style="font-size: 0.9rem; color: var(--text-main); padding-top: 3px; line-height: 1.5;">${step}</span>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+
+        <!-- PART 5: Code Demonstration -->
+        <section id="part5-code" class="card">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">PART 5</span>
+              <h2 class="card-title" style="margin-top: 4px;">Runnable Code Demonstrations</h2>
+            </div>
+          </div>
+
+          ${p5.beginner_example ? `
+            <div style="margin-bottom: 22px;">
+              <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--accent-cyan);">${p5.beginner_example.title}</h3>
+              <div class="code-container">
+                <div class="code-header">
+                  <span>Python 3.15</span>
+                  <span>Beginner Walkthrough</span>
+                </div>
+                <pre class="code-pre"><code>${this.escapeHtml(p5.beginner_example.code)}</code></pre>
+                <div class="code-output">
+                  <strong style="color: var(--text-dim); font-size: 0.72rem; text-transform: uppercase;">Expected Output:</strong>
+                  <div style="margin-top: 4px;">${this.escapeHtml(p5.beginner_example.expected_output)}</div>
+                </div>
+              </div>
+              <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 6px;">${p5.beginner_example.explanation}</p>
+            </div>
+          ` : ''}
+
+          ${p5.production_example ? `
+            <div style="margin-bottom: 20px;">
+              <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--accent-violet);">${p5.production_example.title}</h3>
+              <div class="code-container">
+                <div class="code-header">
+                  <span>Python 3.15</span>
+                  <span>Production-Grade Architecture</span>
+                </div>
+                <pre class="code-pre"><code>${this.escapeHtml(p5.production_example.code)}</code></pre>
+                <div class="code-output">
+                  <strong style="color: var(--text-dim); font-size: 0.72rem; text-transform: uppercase;">Expected Output:</strong>
+                  <div style="margin-top: 4px;">${this.escapeHtml(p5.production_example.expected_output)}</div>
+                </div>
+              </div>
+              <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 6px;">${p5.production_example.explanation}</p>
+            </div>
+          ` : ''}
+
+          ${p5.common_errors && p5.common_errors.length > 0 ? `
+            <div style="background-color: var(--bg-card-subtle); padding: 14px 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-top: 14px;">
+              <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--accent-rose); text-transform: uppercase; margin-bottom: 8px;">Common Syntax & Runtime Errors</h4>
+              ${p5.common_errors.map(err => `
+                <div style="margin-bottom: 8px; font-size: 0.82rem;">
+                  <code style="color: var(--accent-rose); font-family: var(--font-mono);">${err.error}</code>
+                  <div style="color: var(--text-muted); margin-top: 2px;">Fix: ${err.fix}</div>
+                </div>
+              `).join('')}
+            </div>
+          ` : ''}
+        </section>
+
+        <!-- PART 6: When and Why to Use It -->
+        <section id="part6-when" class="card">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(139, 92, 246, 0.15); color: #c084fc;">PART 6</span>
+              <h2 class="card-title" style="margin-top: 4px;">When & Why to Use It</h2>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px;">
+            <div style="background-color: var(--bg-card-subtle); padding: 18px; border-radius: var(--radius-md); border-left: 3px solid var(--accent-green);">
+              <h3 style="font-size: 0.82rem; font-weight: 700; color: var(--accent-green); text-transform: uppercase;">Ideal Use Cases</h3>
+              <ul style="margin: 10px 0 0 18px; font-size: 0.88rem; color: var(--text-main); display: flex; flex-direction: column; gap: 6px;">
+                ${(p6.use_cases || []).map(u => `<li>${u}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div style="background-color: var(--bg-card-subtle); padding: 18px; border-radius: var(--radius-md); border-left: 3px solid var(--accent-amber);">
+              <h3 style="font-size: 0.82rem; font-weight: 700; color: var(--accent-amber); text-transform: uppercase;">When It Is Unnecessary</h3>
+              <ul style="margin: 10px 0 0 18px; font-size: 0.88rem; color: var(--text-main); display: flex; flex-direction: column; gap: 6px;">
+                ${(p6.unnecessary_cases || []).map(u => `<li>${u}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+          <div style="margin-top: 16px; background-color: var(--bg-card-subtle); padding: 14px 18px; border-radius: var(--radius-md);">
+            <strong style="color: var(--text-muted); font-size: 0.82rem; text-transform: uppercase;">Cost & Complexity Trade-Offs:</strong>
+            <p style="font-size: 0.88rem; color: var(--text-main); margin-top: 4px;">${p6.tradeoffs || ''}</p>
+          </div>
+        </section>
+
+        <!-- PART 7: Problems Engineers Face -->
+        <section id="part7-problems" class="card">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">PART 7</span>
+              <h2 class="card-title" style="margin-top: 4px;">Problems Engineers Face</h2>
+              <div class="card-subtitle">Realistic troubleshooting playbooks and failure diagnosis</div>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            ${p7.map(item => `
+              <div style="background-color: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px;">
+                <h3 style="font-size: 1rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px;">
+                  <span style="color: var(--accent-rose);">⚠️</span> ${item.problem}
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 12px; font-size: 0.84rem;">
+                  <div>
+                    <strong style="color: var(--text-dim); text-transform: uppercase; font-size: 0.7rem;">Symptoms:</strong>
+                    <div style="color: var(--text-main); margin-top: 2px;">${item.symptoms}</div>
+                  </div>
+                  <div>
+                    <strong style="color: var(--text-dim); text-transform: uppercase; font-size: 0.7rem;">Likely Causes:</strong>
+                    <div style="color: var(--text-main); margin-top: 2px;">${item.causes}</div>
+                  </div>
+                  <div>
+                    <strong style="color: var(--text-dim); text-transform: uppercase; font-size: 0.7rem;">How to Diagnose:</strong>
+                    <div style="color: var(--text-main); margin-top: 2px;">${item.diagnosis}</div>
+                  </div>
+                </div>
+                <div style="margin-top: 14px; background: rgba(16, 185, 129, 0.08); border-left: 3px solid var(--accent-green); padding: 10px 14px; border-radius: var(--radius-sm); font-size: 0.84rem;">
+                  <strong style="color: var(--accent-green); font-size: 0.72rem; text-transform: uppercase;">Step-by-Step Fix:</strong>
+                  <div style="color: var(--text-main); margin-top: 2px;">${item.fix}</div>
+                  <div style="color: var(--text-muted); font-size: 0.78rem; margin-top: 4px;">Prevention: ${item.prevention}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+
+        <!-- PART 8: Knowledge Check (Interactive) -->
+        <section id="part8-quiz" class="card">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">PART 8</span>
+              <h2 class="card-title" style="margin-top: 4px;">Knowledge Check & Quizzes</h2>
+              <div class="card-subtitle">3 Beginner, 2 Application, 1 Debugging Scenario & 1 Practical Exercise</div>
+            </div>
+            <button class="btn btn-primary btn-sm" id="btn-submit-lesson-quiz">
+              Submit Quiz & Verify Score
+            </button>
+          </div>
+
+          <!-- Beginner Questions -->
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--accent-blue); text-transform: uppercase; margin-bottom: 12px;">Beginner Questions</h3>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+            ${(p8.beginner_questions || []).map((q, idx) => `
+              <div class="quiz-question-box" data-qid="beg_${idx}" style="background-color: var(--bg-card-subtle); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; color: var(--text-main);">${idx + 1}. ${q.question}</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  ${q.options.map((opt, oIdx) => `
+                    <label style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background-color: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); cursor: pointer; font-size: 0.85rem;">
+                      <input type="radio" name="q_beg_${idx}" value="${oIdx}">
+                      <span>${opt}</span>
+                    </label>
+                  `).join('')}
+                </div>
+                <div class="quiz-feedback" id="feedback_beg_${idx}" style="display: none; margin-top: 10px; font-size: 0.82rem; padding: 8px 12px; border-radius: var(--radius-sm);"></div>
+              </div>
+            `).join('')}
+          </div>
+
+          <!-- Application Questions -->
+          <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--accent-violet); text-transform: uppercase; margin-bottom: 12px;">Application Questions</h3>
+          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+            ${(p8.application_questions || []).map((q, idx) => `
+              <div class="quiz-question-box" data-qid="app_${idx}" style="background-color: var(--bg-card-subtle); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; color: var(--text-main);">${idx + 1}. ${q.question}</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  ${q.options.map((opt, oIdx) => `
+                    <label style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; background-color: var(--bg-card); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); cursor: pointer; font-size: 0.85rem;">
+                      <input type="radio" name="q_app_${idx}" value="${oIdx}">
+                      <span>${opt}</span>
+                    </label>
+                  `).join('')}
+                </div>
+                <div class="quiz-feedback" id="feedback_app_${idx}" style="display: none; margin-top: 10px; font-size: 0.82rem; padding: 8px 12px; border-radius: var(--radius-sm);"></div>
+              </div>
+            `).join('')}
+          </div>
+
+          <!-- Debugging Scenario -->
+          ${p8.debugging_scenario ? `
+            <div style="background-color: var(--bg-card-subtle); border-left: 3px solid var(--accent-cyan); padding: 18px; border-radius: var(--radius-md); margin-bottom: 20px;">
+              <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase;">Debugging Scenario</h3>
+              <p style="font-size: 0.88rem; color: var(--text-main); margin-top: 6px; line-height: 1.5;">${p8.debugging_scenario.scenario}</p>
+              <div style="margin-top: 12px; display: flex; gap: 10px;">
+                <button class="btn btn-secondary btn-sm" id="btn-toggle-debug-hint">Show Hint</button>
+                <button class="btn btn-secondary btn-sm" id="btn-toggle-debug-sol">Show Solution</button>
+              </div>
+              <div id="debug-hint-box" style="display: none; margin-top: 10px; font-size: 0.82rem; color: var(--accent-amber);">
+                💡 Hint: ${p8.debugging_scenario.hint}
+              </div>
+              <div id="debug-sol-box" style="display: none; margin-top: 10px; font-size: 0.84rem; background: var(--bg-card); padding: 12px; border-radius: var(--radius-sm); color: var(--accent-green);">
+                ✅ Solution: ${p8.debugging_scenario.solution}
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- Practical Exercise -->
+          ${p8.practical_exercise ? `
+            <div style="background-color: var(--bg-card-subtle); border-left: 3px solid var(--accent-green); padding: 18px; border-radius: var(--radius-md);">
+              <h3 style="font-size: 0.85rem; font-weight: 700; color: var(--accent-green); text-transform: uppercase;">Short Practical Exercise</h3>
+              <p style="font-size: 0.88rem; color: var(--text-main); margin-top: 6px;">${p8.practical_exercise.prompt}</p>
+              <div class="code-container" style="margin-top: 10px;">
+                <pre class="code-pre"><code>${this.escapeHtml(p8.practical_exercise.starter_code)}</code></pre>
+              </div>
+              <button class="btn btn-secondary btn-sm" id="btn-toggle-exercise-sol">Reveal Solution Code</button>
+              <div id="exercise-sol-box" style="display: none; margin-top: 10px;">
+                <div class="code-container">
+                  <pre class="code-pre" style="color: #a7f3d0;"><code>${this.escapeHtml(p8.practical_exercise.solution_code)}</code></pre>
+                </div>
+              </div>
+            </div>
+          ` : ''}
+        </section>
+
+        <!-- PART 9: Completion & User Progress Update -->
+        <section id="part9-completion" class="card" style="border: 2px solid var(--accent-blue);">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">PART 9</span>
+              <h2 class="card-title" style="margin-top: 4px;">Update Topic Status & Save Personal Notes</h2>
+              <div class="card-subtitle">Mark as studied, adjust confidence rating, or flag for revision</div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 20px;">
+            <div>
+              <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 6px;">
+                Topic Learning Status
+              </label>
+              <select id="update-topic-status-select" class="btn btn-secondary" style="width: 100%; padding: 10px 14px; text-align: left;">
+                <option value="not_started" ${userProgress.status === 'not_started' ? 'selected' : ''}>Not Started</option>
+                <option value="in_progress" ${userProgress.status === 'in_progress' ? 'selected' : ''}>In Progress</option>
+                <option value="needs_revision" ${userProgress.status === 'needs_revision' ? 'selected' : ''}>Needs Revision</option>
+                <option value="mastered" ${userProgress.status === 'mastered' ? 'selected' : ''}>Mastered (Confirmed by Practice & Quiz)</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 6px;">
+                Confidence Rating: <span id="conf-val-display" style="color: var(--accent-blue);">${userProgress.confidence_rating || 1} / 5</span>
+              </label>
+              <input type="range" id="update-confidence-range" min="1" max="5" value="${userProgress.confidence_rating || 1}" style="width: 100%; margin-top: 10px; cursor: pointer;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-dim); margin-top: 4px;">
+                <span>1 - Shaky</span>
+                <span>3 - Working</span>
+                <span>5 - Mastered</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 6px;">
+              Personal Study Notes & Key Takeaways
+            </label>
+            <textarea id="update-personal-notes-input" rows="4" style="width: 100%; background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 12px; color: var(--text-main); font-family: inherit; font-size: 0.88rem; resize: vertical;" placeholder="Add your code snippets, mental models, or points to review later...">${userProgress.personal_notes || ''}</textarea>
+          </div>
+
+          <!-- Existing Evidence Log -->
+          ${userProgress.evidence && userProgress.evidence.length > 0 ? `
+            <div style="background-color: var(--bg-card-subtle); padding: 14px 18px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); margin-bottom: 20px;">
+              <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 8px;">Audit Evidence Trail (${userProgress.evidence.length} items)</h4>
+              <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.8rem;">
+                ${userProgress.evidence.map(ev => `
+                  <div style="display: flex; justify-content: space-between; color: var(--text-muted);">
+                    <span>✔ <strong style="color: var(--text-main);">${ev.type.replace('_', ' ')}</strong>: ${ev.source_ref}</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim);">${new Date(ev.created_at).toLocaleDateString()}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          <div style="display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">
+            <button class="btn btn-secondary" onclick="App.navigate('roadmap')">← Back to Roadmap</button>
+            <button class="btn btn-primary" id="btn-save-topic-progress">Save Progress & Evidence</button>
+          </div>
+        </section>
+
+      </div>
+    `;
+
+    container.innerHTML = html;
+    this.attachEventListeners(container, topic);
+  },
+
+  generateDiagramSvg(nodes) {
+    if (!nodes || nodes.length === 0) return '';
+    const nodeWidth = 160;
+    const nodeHeight = 70;
+    const spacing = 45;
+    const startX = 20;
+    const startY = 75;
+
+    let svgHtml = '';
+    nodes.forEach((node, i) => {
+      const x = startX + i * (nodeWidth + spacing);
+      const y = startY;
+
+      // Draw connection arrow to next node
+      if (i < nodes.length - 1) {
+        const arrowStartX = x + nodeWidth;
+        const arrowEndX = arrowStartX + spacing;
+        svgHtml += `
+          <line x1="${arrowStartX}" y1="${y + nodeHeight / 2}" x2="${arrowEndX - 5}" y2="${y + nodeHeight / 2}"
+                stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" />
+        `;
+      }
+
+      // Draw Node Box
+      svgHtml += `
+        <g class="diagram-svg-node" id="svg-node-${i}" style="cursor: pointer;">
+          <rect x="${x}" y="${y}" width="${nodeWidth}" height="${nodeHeight}" rx="8"
+                fill="#111827" stroke="${node.color}" stroke-width="2" />
+          <text x="${x + nodeWidth / 2}" y="${y + 28}" fill="#f8fafc" font-size="11" font-weight="700" text-anchor="middle" font-family="Plus Jakarta Sans">
+            ${this.truncate(node.label, 22)}
+          </text>
+          <text x="${x + nodeWidth / 2}" y="${y + 48}" fill="#94a3b8" font-size="9" text-anchor="middle" font-family="Plus Jakarta Sans">
+            ${this.truncate(node.desc, 26)}
+          </text>
+        </g>
+      `;
+    });
+
+    return svgHtml;
+  },
+
+  truncate(str, max) {
+    if (!str) return '';
+    return str.length > max ? str.substring(0, max - 3) + '...' : str;
+  },
+
+  escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  },
+
+  attachEventListeners(container, topic) {
+    // Confidence slider display
+    const confSlider = container.querySelector('#update-confidence-range');
+    const confDisplay = container.querySelector('#conf-val-display');
+    if (confSlider && confDisplay) {
+      confSlider.addEventListener('input', (e) => {
+        confDisplay.textContent = `${e.target.value} / 5`;
+      });
+    }
+
+    // Save topic progress button
+    const saveBtn = container.querySelector('#btn-save-topic-progress');
+    if (saveBtn) {
+      saveBtn.addEventListener('click', async () => {
+        const newStatus = container.querySelector('#update-topic-status-select').value;
+        const newConfidence = parseInt(container.querySelector('#update-confidence-range').value);
+        const newNotes = container.querySelector('#update-personal-notes-input').value;
+
+        try {
+          saveBtn.disabled = true;
+          saveBtn.textContent = 'Saving...';
+          await API.updateTopicProgress({
+            topic_id: topic.id,
+            status: newStatus,
+            confidence_rating: newConfidence,
+            personal_notes: newNotes,
+            mark_studied_now: true,
+            evidence_type: newStatus === 'mastered' ? 'mastery_confirmed' : 'user_confirmed',
+            evidence_ref: `Status set to ${newStatus}`
+          });
+          App.showToast(`Saved progress for ${topic.title}`);
+          await App.refreshGlobalState();
+          this.renderContent(container, App.state);
+        } catch (err) {
+          alert(`Error saving progress: ${err.message}`);
+        } finally {
+          saveBtn.disabled = false;
+          saveBtn.textContent = 'Save Progress & Evidence';
+        }
+      });
+    }
+
+    // Diagram Step Player
+    const steps = this.lessonData.lesson.part3_visual_diagram?.flow_steps || [];
+    const prevBtn = container.querySelector('#btn-prev-diagram-step');
+    const nextBtn = container.querySelector('#btn-next-diagram-step');
+    const stepText = container.querySelector('#diagram-active-step-text');
+
+    if (steps.length > 0 && prevBtn && nextBtn && stepText) {
+      this.activeDiagramStep = 0;
+      prevBtn.addEventListener('click', () => {
+        if (this.activeDiagramStep > 0) {
+          this.activeDiagramStep--;
+          stepText.textContent = steps[this.activeDiagramStep];
+        }
+      });
+      nextBtn.addEventListener('click', () => {
+        if (this.activeDiagramStep < steps.length - 1) {
+          this.activeDiagramStep++;
+          stepText.textContent = steps[this.activeDiagramStep];
+        }
+      });
+    }
+
+    // Toggle hint and solutions
+    const hintBtn = container.querySelector('#btn-toggle-debug-hint');
+    const hintBox = container.querySelector('#debug-hint-box');
+    if (hintBtn && hintBox) {
+      hintBtn.addEventListener('click', () => {
+        hintBox.style.display = hintBox.style.display === 'none' ? 'block' : 'none';
+      });
+    }
+
+    const solBtn = container.querySelector('#btn-toggle-debug-sol');
+    const solBox = container.querySelector('#debug-sol-box');
+    if (solBtn && solBox) {
+      solBtn.addEventListener('click', () => {
+        solBox.style.display = solBox.style.display === 'none' ? 'block' : 'none';
+      });
+    }
+
+    const exSolBtn = container.querySelector('#btn-toggle-exercise-sol');
+    const exSolBox = container.querySelector('#exercise-sol-box');
+    if (exSolBtn && exSolBox) {
+      exSolBtn.addEventListener('click', () => {
+        exSolBox.style.display = exSolBox.style.display === 'none' ? 'block' : 'none';
+      });
+    }
+
+    // Quiz Submission Button
+    const quizBtn = container.querySelector('#btn-submit-lesson-quiz');
+    if (quizBtn) {
+      quizBtn.addEventListener('click', async () => {
+        const p8 = this.lessonData.lesson.part8_knowledge_check || {};
+        const begQ = p8.beginner_questions || [];
+        const appQ = p8.application_questions || [];
+        let totalQuestions = begQ.length + appQ.length;
+        let score = 0;
+
+        // Evaluate Beginner
+        begQ.forEach((q, idx) => {
+          const selected = container.querySelector(`input[name="q_beg_${idx}"]:checked`);
+          const fb = container.querySelector(`#feedback_beg_${idx}`);
+          if (fb) {
+            fb.style.display = 'block';
+            if (selected && parseInt(selected.value) === q.correct_idx) {
+              score++;
+              fb.style.background = 'rgba(16, 185, 129, 0.15)';
+              fb.style.color = '#34d399';
+              fb.innerHTML = `<strong>Correct!</strong> ${q.explanation}`;
+            } else {
+              fb.style.background = 'rgba(244, 63, 94, 0.15)';
+              fb.style.color = '#fb7185';
+              fb.innerHTML = `<strong>Incorrect.</strong> Correct answer: "${q.options[q.correct_idx]}". ${q.explanation}`;
+            }
+          }
+        });
+
+        // Evaluate Application
+        appQ.forEach((q, idx) => {
+          const selected = container.querySelector(`input[name="q_app_${idx}"]:checked`);
+          const fb = container.querySelector(`#feedback_app_${idx}`);
+          if (fb) {
+            fb.style.display = 'block';
+            if (selected && parseInt(selected.value) === q.correct_idx) {
+              score++;
+              fb.style.background = 'rgba(16, 185, 129, 0.15)';
+              fb.style.color = '#34d399';
+              fb.innerHTML = `<strong>Correct!</strong> ${q.explanation}`;
+            } else {
+              fb.style.background = 'rgba(244, 63, 94, 0.15)';
+              fb.style.color = '#fb7185';
+              fb.innerHTML = `<strong>Incorrect.</strong> Correct answer: "${q.options[q.correct_idx]}". ${q.explanation}`;
+            }
+          }
+        });
+
+        // Submit to API
+        try {
+          const res = await API.submitQuiz({
+            topic_id: topic.id,
+            score: score,
+            total_questions: totalQuestions
+          });
+          const percent = Math.round((score / totalQuestions) * 100);
+          App.showToast(`Quiz Submitted: ${score}/${totalQuestions} (${percent}%) - ${res.passed ? 'PASSED' : 'NEEDS REVISION'}`);
+          await App.refreshGlobalState();
+        } catch (err) {
+          alert(`Failed to save quiz result: ${err.message}`);
+        }
+      });
+    }
+  }
+};
+
+
+
+/* --- frontend/js/upload_view.js --- */
+/**
+ * AI Engineer Learning OS - Document & Study Upload View
+ * Drag-and-drop analyzer with honest parser fallback and 3-group confirmation review screen.
+ */
+
+const UploadView = {
+  lastAnalysis: null,
+
+  render(container, state) {
+    let html = `
+      <div class="view-header" style="margin-bottom: 24px;">
+        <h1 style="font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em;">Upload & Analyze Study Materials</h1>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">
+          Ingest notes, screenshots, research summaries, and PDFs. The analyzer maps concepts to the 12-stage roadmap
+          and presents a review screen before any progress is modified.
+        </p>
+      </div>
+
+      <!-- File Drop Zone -->
+      <div class="card" style="margin-bottom: 24px; padding: 32px; text-align: center; border: 2px dashed var(--border-highlight);" id="upload-dropzone">
+        <input type="file" id="upload-file-input" style="display: none;" accept=".txt,.md,.py,.json,.csv,.pdf,.png,.jpg,.jpeg">
+        
+        <div style="width: 52px; height: 52px; margin: 0 auto 16px; border-radius: 50%; background: var(--accent-blue-subtle); display: flex; align-items: center; justify-content: center; color: var(--accent-blue);">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+        </div>
+
+        <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 6px;">Drag and drop your study files here</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 500px; margin: 0 auto 18px;">
+          Supports Markdown, Python code, TXT notes, PDFs, and screenshots.
+        </p>
+
+        <div style="display: flex; gap: 12px; justify-content: center; align-items: center;">
+          <button class="btn btn-primary" onclick="document.getElementById('upload-file-input').click()">
+            Browse Files
+          </button>
+          <button class="btn btn-secondary" id="btn-load-sample-notes">
+            Load Sample Notes
+          </button>
+        </div>
+
+        <div id="upload-status-indicator" style="display: none; margin-top: 18px; font-size: 0.85rem; color: var(--accent-cyan);">
+          Processing file and matching concepts against roadmap...
+        </div>
+      </div>
+
+      <!-- Analysis & Review Screen Container -->
+      <div id="upload-review-container">
+        ${this.renderReviewSection(this.lastAnalysis)}
+      </div>
+    `;
+
+    container.innerHTML = html;
+    this.attachEventListeners(container);
+  },
+
+  renderReviewSection(data) {
+    if (!data) {
+      return `
+        <div class="card" style="padding: 24px; text-align: center; color: var(--text-dim); font-size: 0.85rem;">
+          No file analyzed yet. Upload study material or click "Load Sample Notes" above to begin.
+        </div>
+      `;
+    }
+
+    const analysis = data.analysis;
+    const groupA = analysis.group_a_found || [];
+    const groupB = analysis.group_b_already_learned || [];
+    const groupC = analysis.group_c_missing_or_further_study || [];
+
+    return `
+      <div class="card" style="border: 2px solid var(--accent-blue); padding: 24px; margin-bottom: 24px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <span class="badge badge-recommended">Analysis Review Screen</span>
+            <h2 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-top: 4px;">
+              Extracted from: ${data.filename}
+            </h2>
+            <div style="font-size: 0.78rem; color: var(--text-dim); margin-top: 2px;">
+              Parser: ${data.parser_type} | Characters: ${analysis.text_length} | Detected Concepts: ${analysis.total_concepts_detected}
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <button class="btn btn-primary" id="btn-confirm-upload-changes">
+              Confirm & Save Progress Updates
+            </button>
+          </div>
+        </div>
+
+        ${data.diagnostics?.ocr_status ? `
+          <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid var(--accent-amber); padding: 10px 14px; border-radius: var(--radius-sm); font-size: 0.8rem; margin-bottom: 20px;">
+            <strong style="color: var(--accent-amber);">Parser Transparency Note:</strong>
+            ${data.diagnostics.ocr_status} ${data.diagnostics.note || ''}
+          </div>
+        ` : ''}
+
+        <!-- 3 Mandated Groups Display -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+
+          <!-- GROUP A: Topics Found in Material -->
+          <div style="background-color: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div>
+                <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa; font-weight: 700;">GROUP A</span>
+                <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-top: 2px;">
+                  Topics Detected in Upload (${groupA.length})
+                </h3>
+              </div>
+              <span style="font-size: 0.75rem; color: var(--text-dim);">Check items you wish to update in your progress</span>
+            </div>
+
+            ${groupA.length === 0 ? `
+              <p style="color: var(--text-dim); font-size: 0.85rem;">No direct roadmap topic matches identified in this excerpt.</p>
+            ` : `
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                ${groupA.map((t, idx) => `
+                  <div style="display: flex; align-items: flex-start; justify-content: space-between; background: var(--bg-card); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 10px;">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                      <input type="checkbox" class="upload-confirm-checkbox" data-topic-id="${t.topic_id}" checked style="margin-top: 4px; cursor: pointer;">
+                      <div>
+                        <div style="font-weight: 700; font-size: 0.92rem; color: #fff;">
+                          ${t.title}
+                          <span style="font-size: 0.72rem; color: var(--accent-cyan); font-weight: 500; margin-left: 8px;">Stage ${t.stage_id}</span>
+                        </div>
+                        <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+                          Matched: <span style="color: var(--text-main); font-family: var(--font-mono);">${t.matched_terms.join(', ')}</span>
+                        </div>
+                        ${t.context_snippet ? `
+                          <div style="font-size: 0.75rem; color: var(--text-dim); margin-top: 4px; font-style: italic;">
+                            "${t.context_snippet}"
+                          </div>
+                        ` : ''}
+                      </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                      <select class="upload-status-select" data-topic-id="${t.topic_id}" style="background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 4px 8px; border-radius: var(--radius-sm); font-size: 0.78rem;">
+                        <option value="in_progress">Set In Progress</option>
+                        <option value="needs_revision">Set Needs Revision</option>
+                        <option value="mastered">Set Mastered</option>
+                      </select>
+                      <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399; font-family: var(--font-mono);">${t.match_score}% Match</span>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </div>
+
+          <!-- GROUP B: Topics Already Learned -->
+          <div style="background-color: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px;">
+            <div style="margin-bottom: 12px;">
+              <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399; font-weight: 700;">GROUP B</span>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-top: 2px;">
+                Topics Already Recorded as Learned (${groupB.length})
+              </h3>
+            </div>
+
+            ${groupB.length === 0 ? `
+              <p style="color: var(--text-dim); font-size: 0.85rem;">None of the detected concepts have previously been marked as learned.</p>
+            ` : `
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px;">
+                ${groupB.map(t => `
+                  <div style="background: var(--bg-card); padding: 10px 14px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                    <div style="font-weight: 600; font-size: 0.86rem; color: var(--text-main);">${t.title}</div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; font-size: 0.72rem;">
+                      <span class="badge badge-${t.status.replace('_', '-')}">${t.status}</span>
+                      <span style="color: var(--text-dim); font-family: var(--font-mono);">${t.confidence_rating}/5 Confidence</span>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </div>
+
+          <!-- GROUP C: Missing or Requiring Further Study -->
+          <div style="background-color: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px;">
+            <div style="margin-bottom: 12px;">
+              <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; font-weight: 700;">GROUP C</span>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-top: 2px;">
+                Topics That May Be Missing or Require Further Study (${groupC.length})
+              </h3>
+              <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">
+                These foundational prerequisites are required for the uploaded material but have not yet been mastered.
+              </p>
+            </div>
+
+            ${groupC.length === 0 ? `
+              <p style="color: var(--text-dim); font-size: 0.85rem;">No prerequisite gaps detected! Your foundations fully support this material.</p>
+            ` : `
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                ${groupC.map(t => `
+                  <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-card); padding: 10px 14px; border-radius: var(--radius-sm); border-left: 3px solid var(--accent-amber); flex-wrap: wrap; gap: 8px;">
+                    <div>
+                      <div style="font-weight: 600; font-size: 0.88rem; color: #fff;">
+                        ${t.title}
+                        <span style="font-size: 0.72rem; color: var(--text-dim); margin-left: 6px;">Stage ${t.stage_id}</span>
+                      </div>
+                      <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">${t.reason}</div>
+                    </div>
+                    <button class="btn btn-outline btn-sm" onclick="App.openTopicLesson('${t.topic_id}')">
+                      Study Prerequisite →
+                    </button>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </div>
+
+        </div>
+      </div>
+    `;
+  },
+
+  attachEventListeners(container) {
+    const fileInput = container.querySelector('#upload-file-input');
+    const dropzone = container.querySelector('#upload-dropzone');
+    const sampleBtn = container.querySelector('#btn-load-sample-notes');
+
+    if (fileInput) {
+      fileInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          await this.processFile(file, container);
+        }
+      });
+    }
+
+    if (dropzone) {
+      dropzone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = 'var(--accent-blue)';
+      });
+      dropzone.addEventListener('dragleave', () => {
+        dropzone.style.borderColor = 'var(--border-highlight)';
+      });
+      dropzone.addEventListener('drop', async (e) => {
+        e.preventDefault();
+        dropzone.style.borderColor = 'var(--border-highlight)';
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          await this.processFile(file, container);
+        }
+      });
+    }
+
+    if (sampleBtn) {
+      sampleBtn.addEventListener('click', async () => {
+        const sampleText = `
+# Comprehensive Machine Learning & Transformer Deep Dive
+Today we reviewed:
+- Python syntax and variables, type hints, and conditional loops.
+- Mathematics for AI: Vectors and matrices, transpose operations, and dot products.
+- Linear Regression, Mean Squared Error (MSE), and Gradient Descent weight updates: w = w - eta * grad.
+- Transformers and Self-Attention mechanisms: Query, Key, and Value dot-product attention:
+  Attention(Q, K, V) = softmax(QK^T / sqrt(d_k))V
+- Prompt Engineering: few-shot exemplars and Chain-of-Thought (CoT).
+        `;
+        await this.analyzeContent(sampleText, 'sample_notes_ml_transformers.md', container);
+      });
+    }
+
+    this.attachConfirmListener(container);
+  },
+
+  async processFile(file, container) {
+    const status = container.querySelector('#upload-status-indicator');
+    if (status) status.style.display = 'block';
+
+    const reader = new FileReader();
+    const ext = file.name.split('.').pop().toLowerCase();
+
+    if (['png', 'jpg', 'jpeg', 'webp', 'pdf'].includes(ext)) {
+      reader.onload = async () => {
+        const base64 = reader.result.split(',')[1];
+        await this.sendUploadPayload({ filename: file.name, base64_content: base64 }, container);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      reader.onload = async () => {
+        await this.analyzeContent(reader.result, file.name, container);
+      };
+      reader.readAsText(file);
+    }
+  },
+
+  async analyzeContent(textContent, filename, container) {
+    await this.sendUploadPayload({ filename, text_content: textContent }, container);
+  },
+
+  async sendUploadPayload(payload, container) {
+    try {
+      const result = await API.uploadStudyMaterial(payload);
+      this.lastAnalysis = result;
+      const reviewBox = container.querySelector('#upload-review-container');
+      if (reviewBox) {
+        reviewBox.innerHTML = this.renderReviewSection(this.lastAnalysis);
+        this.attachConfirmListener(container);
+        App.showToast(`Analyzed ${result.filename}: ${result.analysis.total_concepts_detected} concepts detected.`);
+      }
+    } catch (err) {
+      alert(`Upload analysis error: ${err.message}`);
+    } finally {
+      const status = container.querySelector('#upload-status-indicator');
+      if (status) status.style.display = 'none';
+    }
+  },
+
+  attachConfirmListener(container) {
+    const confirmBtn = container.querySelector('#btn-confirm-upload-changes');
+    if (confirmBtn && this.lastAnalysis) {
+      confirmBtn.addEventListener('click', async () => {
+        const checkedBoxes = container.querySelectorAll('.upload-confirm-checkbox:checked');
+        const confirmedTopics = [];
+
+        checkedBoxes.forEach(cb => {
+          const tid = cb.getAttribute('data-topic-id');
+          const select = container.querySelector(`.upload-status-select[data-topic-id="${tid}"]`);
+          const status = select ? select.value : 'in_progress';
+          confirmedTopics.push({ topic_id: tid, status: status, confidence: 2 });
+        });
+
+        if (confirmedTopics.length === 0) {
+          alert('Please select at least one topic checkbox to confirm.');
+          return;
+        }
+
+        try {
+          confirmBtn.disabled = true;
+          confirmBtn.textContent = 'Saving...';
+          const res = await API.confirmUploadTopics({
+            upload_id: this.lastAnalysis.upload_id,
+            filename: this.lastAnalysis.filename,
+            confirmed_topics: confirmedTopics
+          });
+          App.showToast(res.message);
+          await App.refreshGlobalState();
+          App.navigate('dashboard');
+        } catch (err) {
+          alert(`Failed to confirm upload changes: ${err.message}`);
+        } finally {
+          confirmBtn.disabled = false;
+          confirmBtn.textContent = 'Confirm & Save Progress Updates';
+        }
+      });
+    }
+  }
+};
+
+
+
+/* --- frontend/js/practice_view.js --- */
+/**
+ * AI Engineer Learning OS - Practice & Quizzes View
+ * Interactive quizzes and scenarios for self-assessment and mastery evidence.
+ */
+
+const PracticeView = {
+  render(container, state) {
+    const { topics, progress } = state;
+    const quizHistory = progress?.quiz_history || {};
+    const progressMap = progress?.topics_progress || {};
+
+    let html = `
+      <div class="view-header" style="margin-bottom: 24px;">
+        <h1 style="font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em;">Practice & Quizzes</h1>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">
+          Assessment evidence guarantees that topics are truly understood before recommending mastery.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+    `;
+
+    topics.forEach(topic => {
+      const attempts = quizHistory[topic.id] || [];
+      const hasPassed = attempts.some(a => a.passed);
+      const userP = progressMap[topic.id] || { status: 'not_started', confidence_rating: 1 };
+
+      html += `
+        <div class="card" style="padding: 18px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span class="badge" style="background: var(--bg-card-subtle); color: var(--accent-cyan);">Stage ${topic.stage_id}</span>
+              ${hasPassed ? `
+                <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">Quiz Passed</span>
+              ` : (attempts.length > 0 ? `
+                <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">Revision Needed</span>
+              ` : `
+                <span class="badge badge-not-started">No Attempts</span>
+              `)}
+            </div>
+
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 4px;">${topic.title}</h3>
+            <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 12px;">${topic.importance}</p>
+
+            ${attempts.length > 0 ? `
+              <div style="background: var(--bg-card-subtle); padding: 8px 12px; border-radius: var(--radius-sm); font-size: 0.75rem; color: var(--text-dim); margin-bottom: 12px;">
+                Last Score: <strong style="color: var(--text-main);">${attempts[0].score}/${attempts[0].total_questions}</strong> on ${new Date(attempts[0].created_at).toLocaleDateString()}
+              </div>
+            ` : ''}
+          </div>
+
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.75rem; color: var(--text-dim);">Confidence: ${userP.confidence_rating}/5</span>
+            <button class="btn btn-primary btn-sm" onclick="App.openTopicLesson('${topic.id}#part8-quiz')">
+              Take Quiz →
+            </button>
+          </div>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+    container.innerHTML = html;
+  }
+};
+
+
+
+/* --- frontend/js/projects_view.js --- */
+/**
+ * AI Engineer Learning OS - Hands-On Practical Projects View
+ * Production-minded projects linked directly to roadmap stages with
+ * problem statements, folder structures, starter code, and testing rubrics.
+ */
+
+const ProjectsView = {
+  projectsList: [],
+
+  async render(container, state) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 40px 0;">
+        <div style="color: var(--accent-cyan); font-weight: 600;">Loading practical AI engineering projects...</div>
+      </div>
+    `;
+
+    try {
+      const data = await API.getProjects();
+      this.projectsList = data.projects || [];
+      this.renderContent(container, state);
+    } catch (err) {
+      container.innerHTML = `<div class="card" style="color: var(--accent-rose);">Failed to load projects: ${err.message}</div>`;
+    }
+  },
+
+  renderContent(container, state) {
+    let html = `
+      <div class="view-header" style="margin-bottom: 24px;">
+        <h1 style="font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em;">Hands-On Engineering Projects</h1>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">
+          Theory without execution is ineffective. Build real deployable projects across each roadmap stage to anchor mastery.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+    `;
+
+    this.projectsList.forEach(proj => {
+      const isCompleted = proj.status === 'completed';
+      const isInProgress = proj.status === 'in_progress';
+
+      html += `
+        <div class="card" style="border-left: 4px solid ${isCompleted ? 'var(--accent-green)' : (isInProgress ? 'var(--accent-blue)' : 'var(--border-subtle)')}; padding: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px; margin-bottom: 14px;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span class="badge" style="background: rgba(59, 130, 246, 0.15); color: #60a5fa;">Stage ${proj.stage_id}</span>
+                <span class="badge" style="background: var(--bg-card-subtle); color: var(--accent-cyan);">${proj.difficulty}</span>
+                <span class="badge badge-${proj.status.replace('_', '-')}">${proj.status.toUpperCase()}</span>
+              </div>
+              <h2 style="font-size: 1.3rem; font-weight: 800; color: #fff;">${proj.title}</h2>
+              <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px; max-width: 850px;">${proj.description}</p>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <select class="btn btn-secondary btn-sm proj-status-select" data-proj-id="${proj.id}">
+                <option value="not_started" ${proj.status === 'not_started' ? 'selected' : ''}>Not Started</option>
+                <option value="in_progress" ${proj.status === 'in_progress' ? 'selected' : ''}>In Progress</option>
+                <option value="completed" ${proj.status === 'completed' ? 'selected' : ''}>Completed</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Project Details Accordion -->
+          <div style="background-color: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 16px; margin-top: 14px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; font-size: 0.84rem;">
+              <div>
+                <strong style="color: var(--text-dim); text-transform: uppercase; font-size: 0.7rem;">Required Prerequisites:</strong>
+                <div style="margin-top: 4px; display: flex; gap: 6px; flex-wrap: wrap;">
+                  ${proj.prerequisites.map(pre => `<span class="badge" style="background: var(--bg-card); color: var(--accent-blue);">${pre}</span>`).join('')}
+                </div>
+              </div>
+
+              <div>
+                <strong style="color: var(--text-dim); text-transform: uppercase; font-size: 0.7rem;">GitHub Repository URL:</strong>
+                <input type="url" class="proj-github-input" data-proj-id="${proj.id}" value="${proj.github_url || ''}" placeholder="https://github.com/your-username/repo" style="width: 100%; margin-top: 4px; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 6px 10px; color: var(--text-main); font-size: 0.8rem;">
+              </div>
+            </div>
+
+            <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+              <button class="btn btn-primary btn-sm btn-save-proj" data-proj-id="${proj.id}">
+                Save Project State & Notes
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+    container.innerHTML = html;
+    this.attachEventListeners(container);
+  },
+
+  attachEventListeners(container) {
+    container.querySelectorAll('.btn-save-proj').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const pid = btn.getAttribute('data-proj-id');
+        const statusSelect = container.querySelector(`.proj-status-select[data-proj-id="${pid}"]`);
+        const githubInput = container.querySelector(`.proj-github-input[data-proj-id="${pid}"]`);
+
+        const newStatus = statusSelect ? statusSelect.value : 'not_started';
+        const githubUrl = githubInput ? githubInput.value.trim() : '';
+
+        try {
+          btn.disabled = true;
+          btn.textContent = 'Saving...';
+          await API.updateProjectStatus({
+            project_id: pid,
+            status: newStatus,
+            github_url: githubUrl,
+            notes: `Updated on ${new Date().toLocaleDateString()}`
+          });
+          App.showToast(`Saved project: ${pid}`);
+          await App.refreshGlobalState();
+        } catch (err) {
+          alert(`Failed to save project: ${err.message}`);
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Save Project State & Notes';
+        }
+      });
+    });
+  }
+};
+
+
+
+/* --- frontend/js/app.js --- */
+/**
+ * AI Engineer Learning OS - Core SPA Application Engine
+ * State management, view router, modals, global search, and data binding.
+ */
+
+const App = {
+  currentView: 'dashboard',
+  state: {
+    stages: (typeof window !== 'undefined' && window.STATIC_STAGES) ? window.STATIC_STAGES : [],
+    topics: (typeof window !== 'undefined' && window.STATIC_TOPICS) ? window.STATIC_TOPICS : [],
+    progress: null,
+    recommendation: null,
+    revisions: null
+  },
+
+  async init() {
+    this.setupTheme();
+    this.setupNavigation();
+    this.setupGlobalSearch();
+    this.setupShortcuts();
+
+    await this.refreshGlobalState();
+    this.navigate('dashboard');
+  },
+
+  async refreshGlobalState() {
+    try {
+      const [roadmapData, progressData, recData, revData] = await Promise.all([
+        API.getRoadmap(),
+        API.getProgress(),
+        API.getRecommendation(),
+        API.getRevisions()
+      ]);
+
+      this.state.stages = roadmapData.stages;
+      this.state.topics = roadmapData.topics;
+      this.state.progress = progressData;
+      this.state.recommendation = recData;
+      this.state.revisions = revData;
+
+      // Update revision badges
+      const revBadge = document.getElementById('header-rev-count');
+      if (revBadge) {
+        const revCount = (revData.counts?.due_today_count || 0) + (revData.counts?.needs_revision_count || 0);
+        revBadge.textContent = revCount;
+        revBadge.style.display = revCount > 0 ? 'inline-block' : 'none';
+      }
+    } catch (err) {
+      console.error('[App] State initialization error:', err);
+      this.showToast('Connecting to local storage database...');
+    }
+  },
+
+  navigate(viewId, params = {}) {
+    this.currentView = viewId;
+
+    // Update active nav item
+    document.querySelectorAll('.header-nav .nav-btn').forEach(item => {
+      item.classList.toggle('active', item.getAttribute('data-view') === viewId);
+    });
+
+    // Hide all view panels
+    document.querySelectorAll('.view-panel').forEach(panel => {
+      panel.classList.remove('active');
+    });
+
+    // Show target view panel
+    const targetPanel = document.getElementById(`view-${viewId}`);
+    if (targetPanel) {
+      targetPanel.classList.add('active');
+      this.renderView(viewId, targetPanel, params);
+    }
+
+    // Scroll to top
+    const scrollArea = document.querySelector('.content-scroll-area');
+    if (scrollArea) scrollArea.scrollTop = 0;
+  },
+
+  renderView(viewId, container, params) {
+    switch (viewId) {
+      case 'dashboard':
+        this.renderDashboard(container);
+        break;
+      case 'roadmap':
+        RoadmapView.render(container, this.state);
+        break;
+      case 'learn':
+        const topicId = params.topicId || this.state.recommendation?.recommended_topic?.id || 'py_syntax';
+        LessonView.render(container, topicId, this.state);
+        break;
+      case 'topics':
+        this.renderTopicsDirectory(container);
+        break;
+      case 'upload':
+        UploadView.render(container, this.state);
+        break;
+      case 'practice':
+        PracticeView.render(container, this.state);
+        break;
+      case 'projects':
+        ProjectsView.render(container, this.state);
+        break;
+      case 'revision':
+        this.renderRevisionCenter(container);
+        break;
+      case 'analytics':
+        this.renderAnalytics(container);
+        break;
+      case 'settings':
+        this.renderSettings(container);
+        break;
+      default:
+        this.renderDashboard(container);
+    }
+  },
+
+  openTopicLesson(topicId) {
+    let cleanId = topicId;
+    let anchor = null;
+    if (cleanId && cleanId.includes('#')) {
+      const parts = cleanId.split('#');
+      cleanId = parts[0];
+      anchor = parts[1];
+    }
+    this.navigate('learn', { topicId: cleanId, anchor: anchor });
+  },
+
+  /* =========================================================================
+     1. DASHBOARD VIEW (User-Friendly, Engaging, Clear & Beautiful)
+     ========================================================================= */
+  renderDashboard(container) {
+    try {
+      const stages = (this.state.stages && this.state.stages.length > 0)
+        ? this.state.stages
+        : (window.STATIC_STAGES || []);
+      const topics = (this.state.topics && this.state.topics.length > 0)
+        ? this.state.topics
+        : (window.STATIC_TOPICS || []);
+      const progress = this.state.progress || {};
+      const recommendation = this.state.recommendation || {};
+      const progressMap = progress?.topics_progress || {};
+
+      const stats = progress?.stats || {
+        total_topics: topics.length,
+        mastered: 0,
+        in_progress: 0,
+        needs_revision: 0,
+        not_started: topics.length,
+        completion_percentage: 0,
+        last_studied_id: null
+      };
+
+      const rec = recommendation?.recommended_topic || topics[0] || {
+        id: 'py_syntax',
+        stage_id: 1,
+        stage_name: 'Programming Foundations',
+        title: 'Python Syntax and Variables',
+        difficulty: 'Beginner',
+        estimated_hours: 3,
+        importance: 'The fundamental building block of all AI engineering code. Python is the lingua franca of machine learning.',
+        what_you_will_do: 'Write clean, idiomatic Python scripts, declare variables with explicit types, and execute your first AI scripts.'
+      };
+      const lastStudied = topics.find(t => t.id === stats.last_studied_id) || null;
+
+      // Current learning stage: earliest stage with unmastered topics
+      let currentStage = stages[0] || { id: 1, name: 'Programming Foundations' };
+      for (const st of stages) {
+        const stTopics = topics.filter(t => t.stage_id === st.id);
+        const allMastered = stTopics.length > 0 && stTopics.every(t => progressMap[t.id]?.status === 'mastered');
+        if (!allMastered) {
+          currentStage = st;
+          break;
+        }
+      }
+
+      // Pending topics list (unmastered topics)
+      const pendingTopics = topics.filter(t => {
+        const p = progressMap[t.id]?.status;
+        return p !== 'mastered';
+      });
+
+      let html = `
+        <!-- A. Welcome Banner & Overall Progress -->
+        <div class="dash-welcome-card">
+          <div class="dash-header-row">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                <span class="badge" style="background: rgba(76, 141, 255, 0.15); color: var(--ac); font-weight: 700;">AI LEARNING OS</span>
+                <span style="font-size: 0.78rem; color: var(--mu);">Personal Engineering Mentor</span>
+              </div>
+              <h1 style="color: #fff; font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em;">Welcome back, kakumanu-manoj</h1>
+              <p style="color: var(--tx-dim); font-size: 0.92rem; margin-top: 4px;">
+                Goal: <strong style="color: var(--cy);">Become an AI Engineer</strong> &bull; Active Milestone: <strong style="color: #fff;">Stage ${currentStage.id} &mdash; ${currentStage.name}</strong>
+              </p>
+            </div>
+            <div style="text-align: right; min-width: 160px;">
+              <div style="font-size: 0.72rem; color: var(--mu); text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em;">Roadmap Progress</div>
+              <div style="font-size: 2.2rem; font-weight: 800; font-family: var(--font-mono); color: var(--ac); line-height: 1.1;">
+                ${stats.completion_percentage}%
+              </div>
+              <div style="font-size: 0.78rem; color: var(--mu); margin-top: 2px;">${stats.mastered} of ${stats.total_topics} Mastered</div>
+            </div>
+          </div>
+
+          <div class="progress-bar-wrap">
+            <div class="progress-bar">
+              <i class="progress-bar-fill" style="width: ${Math.max(stats.completion_percentage, 2)}%;"></i>
+            </div>
+          </div>
+
+          <!-- 4-Stat Metric Boxes -->
+          <div class="stat-grid">
+            <div class="stat-box" style="border-left: 3px solid var(--gn);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <b style="color: var(--gn);">${stats.mastered}</b>
+                <span style="font-size: 1.2rem;">🎓</span>
+              </div>
+              <span>Mastered Topics</span>
+              <small style="color: var(--mu); font-size: 0.7rem; margin-top: 4px;">Verified by practice & quizzes</small>
+            </div>
+            <div class="stat-box" style="border-left: 3px solid var(--bl);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <b style="color: var(--bl);">${stats.in_progress}</b>
+                <span style="font-size: 1.2rem;">⚡</span>
+              </div>
+              <span>In Progress</span>
+              <small style="color: var(--mu); font-size: 0.7rem; margin-top: 4px;">Active lessons & code</small>
+            </div>
+            <div class="stat-box" style="border-left: 3px solid var(--gr);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <b style="color: var(--tx-dim);">${stats.not_started}</b>
+                <span style="font-size: 1.2rem;">⏳</span>
+              </div>
+              <span>Pending in Roadmap</span>
+              <small style="color: var(--mu); font-size: 0.7rem; margin-top: 4px;">Upcoming learning modules</small>
+            </div>
+            <div class="stat-box" style="border-left: 3px solid var(--am);">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <b style="color: var(--am);">${stats.needs_revision}</b>
+                <span style="font-size: 1.2rem;">🔄</span>
+              </div>
+              <span>Needs Revision</span>
+              <small style="color: var(--mu); font-size: 0.7rem; margin-top: 4px;">Spaced repetition queue</small>
+            </div>
+          </div>
+
+          <div style="font-size: 0.82rem; color: var(--mu); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-top: 1px solid var(--bd); padding-top: 14px; margin-top: 6px;">
+            <span>Last studied: <strong style="color: var(--tx);">${lastStudied ? lastStudied.title : 'None yet (Start below)'}</strong></span>
+            <span>Recommended next: <strong style="color: #c084fc;">${rec.title}</strong></span>
+          </div>
+        </div>
+
+        <!-- Interactive 12-Stage Milestones Stepper -->
+        <div class="card" style="padding: 18px 22px; margin-bottom: 22px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <span style="font-size: 0.72rem; font-weight: 700; color: var(--mu); text-transform: uppercase; letter-spacing: 0.05em;">
+                Your 12-Stage AI Engineering Pathway
+              </span>
+              <p style="font-size: 0.8rem; color: var(--tx-dim); margin-top: 2px;">Click any stage to browse and filter lessons</p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="App.navigate('roadmap')" style="font-size: 0.78rem; padding: 4px 10px;">
+              View Connected Visual Graph →
+            </button>
+          </div>
+          <div class="stage-stepper">
+            ${stages.map((st, i) => {
+              const icons = ["⚡", "📐", "📊", "🤖", "🧠", "🔮", "💬", "🔍", "🦾", "🚀", "📈", "🛡️"];
+              const stTopics = topics.filter(t => t.stage_id === st.id);
+              const mCount = stTopics.filter(t => progressMap[t.id]?.status === 'mastered').length;
+              const isCur = (st.id === currentStage.id);
+
+              return `
+                <div class="stage-step-pill ${isCur ? 'current-step' : ''}" onclick="App.topicsFilterState.stage='${st.id}'; App.navigate('topics');" title="Click to view Stage ${st.id} topics">
+                  <span style="font-size: 1.1rem;">${icons[i] || '•'}</span>
+                  <div>
+                    <div style="font-weight: 700; font-size: 0.82rem; color: ${isCur ? 'var(--ac)' : '#fff'};">
+                      Stage ${st.id}
+                    </div>
+                    <div style="font-size: 0.68rem; color: var(--mu);">
+                      ${mCount}/${stTopics.length} done
+                    </div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <!-- B. Continue Learning Hero Card (Next Recommended Topic) -->
+        <div class="continue-learning-card">
+          <div class="tag-row">
+            <span class="badge badge-recommended">★ RECOMMENDED NEXT TOPIC</span>
+            <span class="tag">Stage ${rec.stage_id}: ${rec.stage_name || 'Programming Foundations'}</span>
+            <span class="tag">${rec.difficulty}</span>
+            <span class="tag">~${rec.estimated_hours || 3} Hours</span>
+            <span class="badge badge-${(rec.status || 'not_started').replace('_', '-')}">${(rec.status || 'Not Started').replace('_', ' ')}</span>
+          </div>
+
+          <h2 class="continue-title">${rec.title}</h2>
+          <p style="color: var(--tx); font-size: 0.95rem; line-height: 1.6; max-width: 900px; margin-bottom: 14px;">
+            ${rec.importance}
+          </p>
+
+          <div style="background: var(--sf-card); border: 1px solid var(--bd); border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 18px; font-size: 0.86rem; display: flex; flex-direction: column; gap: 8px;">
+            <div><strong style="color: var(--mu);">What you will be able to do:</strong> <span style="color: var(--tx);">${rec.what_you_will_do}</span></div>
+            <div><strong style="color: var(--mu);">Prerequisites:</strong> <span style="color: var(--gn);">${(rec.prerequisites && rec.prerequisites.length > 0) ? `✓ ${rec.prerequisites.length} prerequisites met` : '✓ No prerequisites needed &mdash; foundational entry point'}</span></div>
+          </div>
+
+          <div class="tag-row" style="margin-bottom: 0;">
+            <button class="btn btn-primary" onclick="App.openTopicLesson('${rec.id}')">
+              Continue Learning →
+            </button>
+            <button class="btn btn-secondary" onclick="App.toggleWhyNext()">
+              Why This Topic Next?
+            </button>
+            <button class="btn btn-secondary" onclick="App.showPrerequisitesModal('${rec.id}')">
+              Review Prerequisites
+            </button>
+          </div>
+
+          <!-- Inline Toggleable Explanation -->
+          <div id="dash-why-next" style="display: none;" class="why-box">
+            <p><strong style="color: #c084fc;">Prerequisite Recommendation Rationale:</strong></p>
+            <p style="margin-top: 4px; color: var(--tx);">${recommendation?.reason || 'All prerequisites are satisfied. This is the optimal next foundational step in your roadmap.'}</p>
+            <p style="margin-top: 8px; color: var(--mu); font-size: 0.82rem;">
+              💡 <em>Mastering this lesson unlocks downstream Machine Learning, Neural Network, and Large Language Model architectures.</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- Quick Learning Actions -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 22px;">
+          <div class="card" onclick="App.navigate('roadmap')" style="cursor: pointer; padding: 16px; border-left: 3px solid var(--pu);">
+            <div style="font-size: 1.4rem; margin-bottom: 6px;">🗺️</div>
+            <strong style="color: #fff; font-size: 0.95rem;">Interactive Roadmap</strong>
+            <p style="color: var(--mu); font-size: 0.78rem; margin-top: 4px;">Explore all 12 stages with curved bezier connection arrows.</p>
+          </div>
+          <div class="card" onclick="App.navigate('upload')" style="cursor: pointer; padding: 16px; border-left: 3px solid var(--cy);">
+            <div style="font-size: 1.4rem; margin-bottom: 6px;">📂</div>
+            <strong style="color: #fff; font-size: 0.95rem;">Upload Study Notes</strong>
+            <p style="color: var(--mu); font-size: 0.78rem; margin-top: 4px;">Scan PDF/Markdown notes to match learned topics and find gaps.</p>
+          </div>
+          <div class="card" onclick="App.navigate('practice')" style="cursor: pointer; padding: 16px; border-left: 3px solid var(--am);">
+            <div style="font-size: 1.4rem; margin-bottom: 6px;">🎯</div>
+            <strong style="color: #fff; font-size: 0.95rem;">Practice & Quizzes</strong>
+            <p style="color: var(--mu); font-size: 0.78rem; margin-top: 4px;">Take interactive knowledge checks to earn verified mastery.</p>
+          </div>
+          <div class="card" onclick="App.navigate('projects')" style="cursor: pointer; padding: 16px; border-left: 3px solid var(--gn);">
+            <div style="font-size: 1.4rem; margin-bottom: 6px;">💻</div>
+            <strong style="color: #fff; font-size: 0.95rem;">Hands-on Projects</strong>
+            <p style="color: var(--mu); font-size: 0.78rem; margin-top: 4px;">Build calculators, classifiers, RAG bots, and autonomous agents.</p>
+          </div>
+        </div>
+
+        <!-- C. Pending Topics Section with Search and Filters -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+            <div>
+              <h2 style="font-size: 1.15rem; font-weight: 700; color: #fff;">Pending Topics in Roadmap (${pendingTopics.length})</h2>
+              <p style="font-size: 0.82rem; color: var(--mu);">Topics ready or upcoming in your AI Engineering journey</p>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <input type="text" id="pending-search-input" placeholder="Search pending topics..." style="width: 200px;">
+              <select id="pending-stage-filter">
+                <option value="all">All Stages</option>
+                ${stages.map(s => `<option value="${s.id}">Stage ${s.id}: ${s.name}</option>`).join('')}
+              </select>
+              <select id="pending-diff-filter">
+                <option value="all">All Levels</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="pending-topics-list-container">
+            ${this.renderPendingRows(pendingTopics)}
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+      this.attachDashboardListeners(container);
+    } catch (err) {
+      console.error('[Dashboard Error]', err);
+      container.innerHTML = `
+        <div class="card" style="padding: 30px; text-align: center; border-left: 4px solid var(--accent-rose);">
+          <h2 style="color: #fff; margin-bottom: 10px;">Dashboard Loading</h2>
+          <p style="color: var(--mu); margin-bottom: 16px;">We encountered an issue preparing the dashboard view. Click below to reload.</p>
+          <button class="btn btn-primary" onclick="App.init()">Reload Dashboard</button>
+        </div>
+      `;
+    }
+  },
+
+  renderPendingRows(pendingList) {
+    const { topics, progress } = this.state;
+    const progressMap = progress?.topics_progress || {};
+
+    if (pendingList.length === 0) {
+      return `<div style="text-align: center; color: var(--gn); padding: 30px; font-size: 0.9rem;">All selected roadmap topics mastered!</div>`;
+    }
+
+    return pendingList.slice(0, 15).map((topic, idx) => {
+      const p = progressMap[topic.id] || { status: 'not_started' };
+      const missing = (topic.prerequisites || []).filter(pid => {
+        return progressMap[pid]?.status !== 'mastered';
+      });
+
+      const missingNames = missing.map(pid => {
+        const pt = topics.find(t => t.id === pid);
+        return pt ? pt.title : pid;
+      });
+
+      return `
+        <div class="item-card" onclick="App.openTopicLesson('${topic.id}')">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 4px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <strong style="color: #fff; font-size: 0.95rem;">${topic.title}</strong>
+              <span class="badge badge-${p.status.replace('_', '-')}">${p.status.replace('_', ' ')}</span>
+              <span class="tag">Stage ${topic.stage_id}</span>
+              <span class="tag">${topic.difficulty}</span>
+              <span class="tag" style="font-family: var(--font-mono);">order ${idx + 1}</span>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); App.openTopicLesson('${topic.id}')">
+              Learn →
+            </button>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--mu);">
+            ${topic.importance}
+            ${missing.length > 0 
+              ? `<span style="color: var(--am); margin-left: 6px;">Missing prerequisites: ${missingNames.join(', ')}</span>` 
+              : `<span style="color: var(--gn); margin-left: 6px;">Prerequisites met &bull; Ready to learn</span>`}
+          </div>
+        </div>
+      `;
+    }).join('');
+  },
+
+  toggleWhyNext() {
+    const box = document.getElementById('dash-why-next');
+    if (box) {
+      box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    }
+  },
+
+  attachDashboardListeners(container) {
+    const searchInput = container.querySelector('#pending-search-input');
+    const stageFilter = container.querySelector('#pending-stage-filter');
+    const diffFilter = container.querySelector('#pending-diff-filter');
+    const listContainer = container.querySelector('#pending-topics-list-container');
+
+    const updateFilter = () => {
+      const q = (searchInput?.value || '').toLowerCase().trim();
+      const sVal = stageFilter?.value || 'all';
+      const dVal = diffFilter?.value || 'all';
+
+      const filtered = this.state.topics.filter(t => {
+        const pStatus = this.state.progress?.topics_progress?.[t.id]?.status;
+        if (pStatus === 'mastered') return false;
+        if (sVal !== 'all' && t.stage_id !== parseInt(sVal)) return false;
+        if (dVal !== 'all' && !t.difficulty.includes(dVal)) return false;
+        if (q && !(t.title + ' ' + t.importance).toLowerCase().includes(q)) return false;
+        return true;
+      });
+
+      if (listContainer) {
+        listContainer.innerHTML = this.renderPendingRows(filtered);
+      }
+    };
+
+    if (searchInput) searchInput.addEventListener('input', updateFilter);
+    if (stageFilter) stageFilter.addEventListener('change', updateFilter);
+    if (diffFilter) diffFilter.addEventListener('change', updateFilter);
+  },
+
+  /* =========================================================================
+     3. MY TOPICS DIRECTORY VIEW (Visually Engaging, Grid Cards & Filter Chips)
+     ========================================================================= */
+  topicsFilterState: { stage: 'all', status: 'all', diff: 'all', search: '', viewMode: 'grid' },
+
+  renderTopicsDirectory(container) {
+    const { stages, topics, progress, recommendation } = this.state;
+    const progressMap = progress?.topics_progress || {};
+    const recommendedId = recommendation?.recommended_topic?.id;
+    const fs = this.topicsFilterState;
+
+    // Filter topics
+    const filtered = topics.filter(t => {
+      const p = progressMap[t.id] || { status: 'not_started' };
+      if (fs.stage !== 'all' && t.stage_id !== parseInt(fs.stage)) return false;
+      if (fs.status !== 'all' && p.status !== fs.status) return false;
+      if (fs.diff !== 'all' && !t.difficulty.toLowerCase().includes(fs.diff.toLowerCase())) return false;
+      if (fs.search && !(t.title + ' ' + (t.importance || '')).toLowerCase().includes(fs.search.toLowerCase())) return false;
+      return true;
+    });
+
+    const stageIcons = ["⚡", "📐", "📊", "🤖", "🧠", "🔮", "💬", "🔍", "🦾", "🚀", "📈", "🛡️"];
+
+    let html = `
+      <div style="margin-bottom: 22px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; margin-bottom: 14px;">
+          <div>
+            <h1 style="font-size: 1.65rem; font-weight: 800; color: #fff; letter-spacing: -0.02em;">My Topics & Knowledge Base</h1>
+            <p style="color: var(--mu); font-size: 0.88rem; margin-top: 3px;">
+              Master ${topics.length} industry-standard AI Engineering concepts at your own pace.
+            </p>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <input type="text" id="topics-search-box" value="${fs.search}" placeholder="Search any topic or concept..." style="width: 220px;">
+            <div style="display: flex; background: var(--sf); border: 1px solid var(--bd); border-radius: var(--radius-md); overflow: hidden;">
+              <button class="btn btn-sm ${fs.viewMode === 'grid' ? 'btn-primary' : 'btn-outline'}" id="btn-toggle-grid" style="border: none; border-radius: 0;">⊞ Grid</button>
+              <button class="btn btn-sm ${fs.viewMode === 'table' ? 'btn-primary' : 'btn-outline'}" id="btn-toggle-table" style="border: none; border-radius: 0;">☰ Table</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Horizontal Scrollable Stage Filter Chips with Icons -->
+        <div class="filter-chip-bar" id="stage-filter-chips">
+          <button class="filter-chip ${fs.stage === 'all' ? 'active' : ''}" data-stage="all">All Stages (${topics.length})</button>
+          ${stages.map((st, i) => `
+            <button class="filter-chip ${fs.stage == st.id ? 'active' : ''}" data-stage="${st.id}">
+              ${stageIcons[i] || '•'} Stage ${st.id}: ${st.name.split(' ')[0]}
+            </button>
+          `).join('')}
+        </div>
+
+        <!-- Status Filter Chips -->
+        <div class="filter-chip-bar" style="margin-bottom: 20px;">
+          <button class="filter-chip ${fs.status === 'all' ? 'active' : ''}" data-status="all">All Statuses</button>
+          <button class="filter-chip ${fs.status === 'not_started' ? 'active' : ''}" data-status="not_started">⚪ Not Started</button>
+          <button class="filter-chip ${fs.status === 'in_progress' ? 'active' : ''}" data-status="in_progress">🔵 In Progress</button>
+          <button class="filter-chip ${fs.status === 'needs_revision' ? 'active' : ''}" data-status="needs_revision">🟠 Needs Revision</button>
+          <button class="filter-chip ${fs.status === 'mastered' ? 'active' : ''}" data-status="mastered">🟢 Mastered</button>
+        </div>
+      </div>
+
+      <!-- Topics Content (Grid or Table) -->
+      ${fs.viewMode === 'grid' ? `
+        <div class="topics-visual-grid" id="topics-grid-container">
+          ${filtered.length === 0 ? `
+            <div class="card" style="grid-column: 1 / -1; text-align: center; color: var(--mu); padding: 40px;">
+              No topics match your current filters. Try selecting "All Stages" or clearing the search.
+            </div>
+          ` : filtered.map(t => {
+            const p = progressMap[t.id] || { status: 'not_started', confidence_rating: 1 };
+            const isRec = (t.id === recommendedId);
+            const icon = stageIcons[(t.stage_id - 1) % stageIcons.length] || '✦';
+
+            return `
+              <div class="topic-visual-card ${isRec ? 'recommended-card' : ''}" onclick="App.openTopicLesson('${t.id}')">
+                <div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span class="badge" style="background: var(--sf-card); color: var(--ac); border: 1px solid var(--bd);">
+                      ${icon} Stage ${t.stage_id}
+                    </span>
+                    <span class="badge badge-${p.status.replace('_', '-')}">${p.status.replace('_', ' ')}</span>
+                  </div>
+
+                  <h3 style="color: #fff; font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; line-height: 1.35;">
+                    ${t.title}
+                  </h3>
+
+                  <p style="color: var(--mu); font-size: 0.8rem; line-height: 1.45; margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                    ${t.importance || t.what_you_will_do}
+                  </p>
+                </div>
+
+                <div style="border-top: 1px solid var(--bd); padding-top: 12px; margin-top: 6px; display: flex; justify-content: space-between; align-items: center;">
+                  <div style="display: flex; align-items: center; gap: 4px;" title="Confidence Rating">
+                    <span style="font-size: 0.72rem; color: var(--mu); margin-right: 4px;">Conf:</span>
+                    ${[1, 2, 3, 4, 5].map(star => `
+                      <span style="font-size: 0.8rem; color: ${star <= (p.confidence_rating || 1) ? 'var(--am)' : 'var(--bd)'};">★</span>
+                    `).join('')}
+                  </div>
+
+                  <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); App.openTopicLesson('${t.id}')">
+                    Learn →
+                  </button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      ` : `
+        <!-- Compact Table View -->
+        <div class="data-table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Topic</th>
+                <th>Stage</th>
+                <th>Difficulty</th>
+                <th>Status</th>
+                <th>Confidence</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${filtered.map(t => {
+                const p = progressMap[t.id] || { status: 'not_started', confidence_rating: 1 };
+                return `
+                  <tr>
+                    <td>
+                      <div style="font-weight: 700; color: #fff;">${t.title}</div>
+                      <div style="font-size: 0.74rem; color: var(--mu);">${t.what_you_will_do}</div>
+                    </td>
+                    <td><span class="badge" style="background: var(--sf); color: var(--ac);">Stage ${t.stage_id}</span></td>
+                    <td><span class="tag">${t.difficulty}</span></td>
+                    <td><span class="badge badge-${p.status.replace('_', '-')}">${p.status.replace('_', ' ')}</span></td>
+                    <td><span style="font-family: var(--font-mono); color: var(--ac);">${p.confidence_rating || 1}/5</span></td>
+                    <td>
+                      <button class="btn btn-outline btn-sm" onclick="App.openTopicLesson('${t.id}')">
+                        Learn →
+                      </button>
+                    </td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+      `}
+    `;
+
+    container.innerHTML = html;
+    this.attachTopicsDirectoryListeners(container);
+  },
+
+  attachTopicsDirectoryListeners(container) {
+    const fs = this.topicsFilterState;
+
+    // Search Box
+    const searchBox = container.querySelector('#topics-search-box');
+    if (searchBox) {
+      searchBox.addEventListener('input', (e) => {
+        fs.search = e.target.value;
+        this.renderTopicsDirectory(container);
+      });
+    }
+
+    // View Mode Toggle
+    const gridBtn = container.querySelector('#btn-toggle-grid');
+    const tableBtn = container.querySelector('#btn-toggle-table');
+    if (gridBtn) gridBtn.addEventListener('click', () => { fs.viewMode = 'grid'; this.renderTopicsDirectory(container); });
+    if (tableBtn) tableBtn.addEventListener('click', () => { fs.viewMode = 'table'; this.renderTopicsDirectory(container); });
+
+    // Stage Filter Chips
+    container.querySelectorAll('#stage-filter-chips .filter-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        fs.stage = chip.getAttribute('data-stage');
+        this.renderTopicsDirectory(container);
+      });
+    });
+
+    // Status Filter Chips
+    container.querySelectorAll('.filter-chip[data-status]').forEach(chip => {
+      chip.addEventListener('click', () => {
+        fs.status = chip.getAttribute('data-status');
+        this.renderTopicsDirectory(container);
+      });
+    });
+  },
+
+  /* =========================================================================
+     8. REVISION CENTER VIEW (Section 11)
+     ========================================================================= */
+  renderRevisionCenter(container) {
+    const rev = Object.assign({
+      due_today: [],
+      overdue: [],
+      needs_revision: [],
+      weak_concepts: [],
+      recently_mastered: []
+    }, this.state.revisions);
+
+    let html = `
+      <div class="view-header" style="margin-bottom: 24px;">
+        <h1 style="font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em;">Revision & Spaced Repetition Center</h1>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">
+          Reinforce decay-prone concepts using transparent spaced review intervals (1, 3, 7, 14, and 30 days).
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px;">
+        <!-- Needs Revision Section -->
+        <div class="card" style="border-left: 4px solid var(--accent-amber);">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">HIGH PRIORITY</span>
+              <h2 class="card-title" style="margin-top: 4px;">Flagged for Revision (${rev.needs_revision.length})</h2>
+            </div>
+          </div>
+          ${rev.needs_revision.length === 0 ? `
+            <p style="color: var(--text-dim); font-size: 0.85rem;">No topics currently flagged for revision.</p>
+          ` : `
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              ${rev.needs_revision.map(t => `
+                <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-card-subtle); padding: 10px 14px; border-radius: var(--radius-sm);">
+                  <div>
+                    <div style="font-weight: 600; font-size: 0.88rem; color: #fff;">${t.title}</div>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">Confidence: ${t.confidence_rating}/5</div>
+                  </div>
+                  <button class="btn btn-outline btn-sm" onclick="App.openTopicLesson('${t.topic_id}')">Revise →</button>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+
+        <!-- Weak Concepts Section -->
+        <div class="card" style="border-left: 4px solid var(--accent-rose);">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(244, 63, 94, 0.15); color: #fb7185;">WEAK PERFORMANCE</span>
+              <h2 class="card-title" style="margin-top: 4px;">Low Confidence & Failed Quizzes (${rev.weak_concepts.length})</h2>
+            </div>
+          </div>
+          ${rev.weak_concepts.length === 0 ? `
+            <p style="color: var(--text-dim); font-size: 0.85rem;">No weak concepts detected. All active topics have solid confidence.</p>
+          ` : `
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              ${rev.weak_concepts.map(t => `
+                <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-card-subtle); padding: 10px 14px; border-radius: var(--radius-sm);">
+                  <div>
+                    <div style="font-weight: 600; font-size: 0.88rem; color: #fff;">${t.title}</div>
+                    <div style="font-size: 0.72rem; color: var(--accent-rose);">${t.weak_reason}</div>
+                  </div>
+                  <button class="btn btn-outline btn-sm" onclick="App.openTopicLesson('${t.topic_id}#part8-quiz')">Test Now →</button>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+
+        <!-- Overdue Review Topics -->
+        <div class="card" style="border-left: 4px solid var(--accent-cyan);">
+          <div class="card-header">
+            <div>
+              <span class="badge" style="background: rgba(6, 182, 212, 0.15); color: #22d3ee;">SPACED REPETITION</span>
+              <h2 class="card-title" style="margin-top: 4px;">Due Today / Overdue (${rev.overdue.length + rev.due_today.length})</h2>
+            </div>
+          </div>
+          ${(rev.overdue.length + rev.due_today.length) === 0 ? `
+            <p style="color: var(--text-dim); font-size: 0.85rem;">All scheduled reviews are up to date.</p>
+          ` : `
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              ${rev.overdue.map(t => `
+                <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-card-subtle); padding: 10px 14px; border-radius: var(--radius-sm);">
+                  <div>
+                    <div style="font-weight: 600; font-size: 0.88rem; color: #fff;">${t.title}</div>
+                    <div style="font-size: 0.72rem; color: var(--accent-amber);">${t.days_overdue} days overdue</div>
+                  </div>
+                  <button class="btn btn-outline btn-sm" onclick="App.openTopicLesson('${t.topic_id}')">Review →</button>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+      </div>
+    `;
+
+    container.innerHTML = html;
+  },
+
+  /* =========================================================================
+     9. PROGRESS ANALYTICS VIEW
+     ========================================================================= */
+  renderAnalytics(container) {
+    const { stages, topics, progress } = this.state;
+    const progressMap = progress?.topics_progress || {};
+    const stats = progress?.stats || { mastered: 0, in_progress: 0, needs_revision: 0, not_started: 0 };
+
+    let html = `
+      <div class="view-header" style="margin-bottom: 24px;">
+        <h1 style="font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em;">Progress Analytics & Mastery Breakdown</h1>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">
+          Empirical measurements of roadmap coverage, quiz passing rates, and stage completions.
+        </p>
+      </div>
+
+      <!-- Stage Mastery Progress Bars -->
+      <div class="card" style="margin-bottom: 24px; padding: 24px;">
+        <h2 class="card-title" style="margin-bottom: 18px;">12-Stage Mastery Completion</h2>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          ${stages.map(st => {
+            const stTopics = topics.filter(t => t.stage_id === st.id);
+            const mastered = stTopics.filter(t => progressMap[t.id]?.status === 'mastered').length;
+            const inProg = stTopics.filter(t => progressMap[t.id]?.status === 'in_progress').length;
+            const percent = Math.round((mastered / stTopics.length) * 100);
+
+            return `
+              <div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 4px;">
+                  <span style="font-weight: 700; color: #fff;">Stage ${st.id}: ${st.name}</span>
+                  <span style="font-family: var(--font-mono); color: var(--text-dim);">${mastered} / ${stTopics.length} (${percent}%)</span>
+                </div>
+                <div style="width: 100%; height: 8px; background: var(--bg-card-subtle); border-radius: 999px; overflow: hidden;">
+                  <div style="width: ${percent}%; height: 100%; background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan)); border-radius: 999px; transition: width 0.3s ease;"></div>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+
+    container.innerHTML = html;
+  },
+
+  /* =========================================================================
+     10. SETTINGS & EXPORT VIEW
+     ========================================================================= */
+  renderSettings(container) {
+    let html = `
+      <div class="view-header" style="margin-bottom: 24px;">
+        <h1 style="font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em;">Settings & Data Backup</h1>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 4px;">
+          Export and import your complete learning state, manage persistent storage, and view runtime configurations.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px;">
+        <!-- Export / Import Card -->
+        <div class="card" style="padding: 24px;">
+          <h2 class="card-title" style="margin-bottom: 6px;">Backup & Portability</h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 18px;">
+            Export all topic progress, personal notes, quiz logs, and project links as a portable JSON file.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <button class="btn btn-primary" id="btn-export-backup">
+              Export Progress Backup (.json)
+            </button>
+
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px; margin-top: 4px;">
+              <label style="font-size: 0.75rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; display: block; margin-bottom: 6px;">
+                Restore from JSON Backup
+              </label>
+              <textarea id="import-json-textarea" rows="4" style="width: 100%; background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px; color: var(--text-main); font-family: var(--font-mono); font-size: 0.75rem;" placeholder="Paste exported JSON payload here..."></textarea>
+              <button class="btn btn-secondary btn-sm" id="btn-import-backup" style="margin-top: 8px;">
+                Import & Restore Progress
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reset Data Card -->
+        <div class="card" style="padding: 24px; border: 1px solid rgba(244, 63, 94, 0.3);">
+          <h2 class="card-title" style="color: var(--accent-rose); margin-bottom: 6px;">Danger Zone: Reset State</h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 18px;">
+            Clears all evidence logs, quiz scores, project progress, and resets all topics to 'Not Started'.
+          </p>
+          <button class="btn btn-outline" id="btn-reset-all-data" style="color: var(--accent-rose); border-color: var(--accent-rose);">
+            Reset All Learning Progress
+          </button>
+        </div>
+      </div>
+    `;
+
+    container.innerHTML = html;
+
+    // Export Handler
+    const exportBtn = container.querySelector('#btn-export-backup');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', async () => {
+        try {
+          const data = await API.exportData();
+          const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `ai_engineer_learning_os_backup_${new Date().toISOString().split('T')[0]}.json`;
+          a.click();
+          URL.revokeObjectURL(url);
+          App.showToast('Downloaded learning state backup.');
+        } catch (err) {
+          alert(`Export failed: ${err.message}`);
+        }
+      });
+    }
+
+    // Import Handler
+    const importBtn = container.querySelector('#btn-import-backup');
+    if (importBtn) {
+      importBtn.addEventListener('click', async () => {
+        const text = container.querySelector('#import-json-textarea').value.trim();
+        if (!text) {
+          alert('Please paste a valid JSON backup payload first.');
+          return;
+        }
+        try {
+          const parsed = JSON.parse(text);
+          const res = await API.importData(parsed);
+          App.showToast(`Restored ${res.imported_topics} topic records.`);
+          await App.refreshGlobalState();
+          App.navigate('dashboard');
+        } catch (err) {
+          alert(`Import failed: ${err.message}`);
+        }
+      });
+    }
+
+    // Reset Handler
+    const resetBtn = container.querySelector('#btn-reset-all-data');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', async () => {
+        if (confirm('Are you sure you want to reset all learning progress? This action cannot be undone.')) {
+          await API.resetData();
+          App.showToast('All learning data reset to initial state.');
+          await App.refreshGlobalState();
+          App.navigate('dashboard');
+        }
+      });
+    }
+  },
+
+  /* =========================================================================
+     MODALS: Why This Topic Next? & Review Prerequisites
+     ========================================================================= */
+  showWhyNextModal(topicId) {
+    const rec = this.state.recommendation;
+    if (!rec) return;
+
+    const modalOverlay = document.getElementById('global-modal-overlay');
+    const modalContent = document.getElementById('global-modal-content');
+
+    const satList = (rec.satisfied_prerequisites || []).map(p => {
+      return `<li><strong style="color: var(--accent-green);">${p.title}</strong> (Stage ${p.stage_id} - ${p.status})</li>`;
+    }).join('');
+
+    const unlockList = (rec.downstream_unlocked || []).map(u => {
+      return `<li><strong style="color: var(--accent-violet);">${u.title}</strong> (Stage ${u.stage_id})</li>`;
+    }).join('');
+
+    const altList = (rec.alternative_choices || []).map(alt => {
+      return `
+        <div style="background: var(--bg-card-subtle); padding: 10px 14px; border-radius: var(--radius-sm); margin-top: 6px;">
+          <div style="font-weight: 700; color: #fff;">${alt.title} (Stage ${alt.stage_id})</div>
+          <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">${alt.reason}</div>
+          <button class="btn btn-outline btn-sm" style="margin-top: 6px;" onclick="App.closeModal(); App.openTopicLesson('${alt.id}')">Switch to this topic →</button>
+        </div>
+      `;
+    }).join('');
+
+    modalContent.innerHTML = `
+      <button class="modal-close-btn" onclick="App.closeModal()">✕</button>
+      <span class="badge badge-recommended" style="margin-bottom: 8px;">RECOMMENDATION RATIONALE</span>
+      <h2 style="font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 12px;">
+        Why '${rec.recommended_topic.title}' is Next
+      </h2>
+
+      <div style="background: var(--bg-card-subtle); padding: 16px; border-radius: var(--radius-md); border-left: 3px solid var(--accent-violet); margin-bottom: 18px; font-size: 0.92rem; line-height: 1.6; color: var(--text-main);">
+        ${rec.reason}
+      </div>
+
+      <div style="margin-bottom: 16px;">
+        <h4 style="font-size: 0.78rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase;">Satisfied Prerequisites:</h4>
+        <ul style="margin: 6px 0 0 18px; font-size: 0.85rem; color: var(--text-muted);">
+          ${satList || '<li>No prerequisites required (Foundational topic)</li>'}
+        </ul>
+      </div>
+
+      <div style="margin-bottom: 18px;">
+        <h4 style="font-size: 0.78rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase;">Concepts This Unlocks:</h4>
+        <ul style="margin: 6px 0 0 18px; font-size: 0.85rem; color: var(--text-muted);">
+          ${unlockList || '<li>Direct stepping stone to subsequent stage topics</li>'}
+        </ul>
+      </div>
+
+      ${altList ? `
+        <div style="border-top: 1px solid var(--border-subtle); padding-top: 14px; margin-top: 16px;">
+          <h4 style="font-size: 0.78rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase;">Valid Alternatives Right Now:</h4>
+          ${altList}
+        </div>
+      ` : ''}
+
+      <div style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="btn btn-secondary" onclick="App.closeModal()">Close</button>
+        <button class="btn btn-primary" onclick="App.closeModal(); App.openTopicLesson('${rec.recommended_topic.id}')">Start Learning →</button>
+      </div>
+    `;
+
+    modalOverlay.classList.add('active');
+  },
+
+  async showPrerequisitesModal(topicId) {
+    const modalOverlay = document.getElementById('global-modal-overlay');
+    const modalContent = document.getElementById('global-modal-content');
+
+    modalContent.innerHTML = `<div style="text-align: center; padding: 30px;">Loading prerequisite tree...</div>`;
+    modalOverlay.classList.add('active');
+
+    try {
+      const tree = await API.getPrerequisitesTree(topicId);
+      const chain = tree.prerequisites_chain || [];
+
+      modalContent.innerHTML = `
+        <button class="modal-close-btn" onclick="App.closeModal()">✕</button>
+        <span class="badge badge-in-progress" style="margin-bottom: 8px;">DEPENDENCY TREE</span>
+        <h2 style="font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 6px;">
+          Prerequisites for ${tree.target_topic.title}
+        </h2>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 18px;">
+          ${chain.length === 0 ? 'This topic has no prerequisites. You can begin immediately!' : `Requires ${chain.length} foundational concept${chain.length > 1 ? 's' : ''}.`}
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; max-height: 400px; overflow-y: auto;">
+          ${chain.map((c, idx) => `
+            <div style="display: flex; justify-content: space-between; align-items: center; background: var(--bg-card-subtle); border-left: 3px solid ${c.is_satisfied ? 'var(--accent-green)' : 'var(--accent-amber)'}; padding: 12px 14px; border-radius: var(--radius-sm);">
+              <div>
+                <div style="font-weight: 700; font-size: 0.88rem; color: #fff;">${idx + 1}. ${c.title}</div>
+                <div style="font-size: 0.74rem; color: var(--text-dim); margin-top: 2px;">${c.stage_name} | Status: <strong style="color: ${c.is_satisfied ? 'var(--accent-green)' : 'var(--accent-amber)'}">${c.status}</strong></div>
+              </div>
+              <button class="btn btn-outline btn-sm" onclick="App.closeModal(); App.openTopicLesson('${c.id}')">
+                Open →
+              </button>
+            </div>
+          `).join('')}
+        </div>
+
+        <div style="margin-top: 20px; display: flex; justify-content: flex-end;">
+          <button class="btn btn-secondary" onclick="App.closeModal()">Close</button>
+        </div>
+      `;
+    } catch (err) {
+      modalContent.innerHTML = `<div style="color: var(--accent-rose);">Error: ${err.message}</div>`;
+    }
+  },
+
+  closeModal() {
+    const modalOverlay = document.getElementById('global-modal-overlay');
+    if (modalOverlay) modalOverlay.classList.remove('active');
+  },
+
+  /* =========================================================================
+     GLOBAL SEARCH (with '/' Shortcut)
+     ========================================================================= */
+  setupGlobalSearch() {
+    const searchInput = document.getElementById('global-search-input');
+    const resultsBox = document.getElementById('search-results-box');
+
+    if (!searchInput || !resultsBox) return;
+
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      if (!q) {
+        resultsBox.classList.remove('active');
+        return;
+      }
+
+      const matches = this.state.topics.filter(t => {
+        return t.title.toLowerCase().includes(q) ||
+               t.importance.toLowerCase().includes(q) ||
+               (t.key_concepts || []).some(k => k.toLowerCase().includes(q));
+      }).slice(0, 6);
+
+      if (matches.length === 0) {
+        resultsBox.innerHTML = `<div style="padding: 16px; color: var(--text-dim); font-size: 0.85rem;">No topics matching "${q}"</div>`;
+      } else {
+        resultsBox.innerHTML = matches.map(m => `
+          <div class="search-item" onclick="App.openTopicLesson('${m.id}'); document.getElementById('search-results-box').classList.remove('active');">
+            <div style="font-weight: 700; font-size: 0.88rem; color: #fff;">${m.title}</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">Stage ${m.stage_id} - ${m.difficulty}</div>
+          </div>
+        `).join('');
+      }
+
+      resultsBox.classList.add('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!searchInput.contains(e.target) && !resultsBox.contains(e.target)) {
+        resultsBox.classList.remove('active');
+      }
+    });
+  },
+
+  setupShortcuts() {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        const searchInput = document.getElementById('global-search-input');
+        if (searchInput) searchInput.focus();
+      }
+      if (e.key === 'Escape') {
+        this.closeModal();
+        const resultsBox = document.getElementById('search-results-box');
+        if (resultsBox) resultsBox.classList.remove('active');
+      }
+    });
+  },
+
+  setupTheme() {
+    const btn = document.getElementById('theme-toggle-btn');
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', nextTheme);
+        App.showToast(`Switched to ${nextTheme} theme.`);
+      });
+    }
+  },
+
+  setupNavigation() {
+    document.querySelectorAll('.header-nav .nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = btn.getAttribute('data-view');
+        if (view) this.navigate(view);
+      });
+    });
+  },
+
+  showToast(message) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `<span style="color: var(--accent-cyan);">✦</span> <span>${message}</span>`;
+    container.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => toast.remove(), 200);
+    }, 3200);
+  }
+};
+
+// Initialize application on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  App.init();
+});
+
+
+</script>
+</body>
+</html>
