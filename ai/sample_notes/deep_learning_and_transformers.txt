@@ -1,0 +1,11 @@
+Research Summary: Neural Networks and Transformer Attention
+
+Key Architecture:
+- Artificial Neurons: activation functions (ReLU, Sigmoid, GELU).
+- Multilayer Perceptrons: forward pass matrix multiplication z = WX + b.
+- Backpropagation and Chain Rule: calculating error gradients across computational graphs.
+- Transformer Architecture: Positional Encoding, Multi-Head Attention, and Feed-Forward Networks.
+- Query, Key, and Value: Scaled dot-product attention formula:
+  Attention(Q, K, V) = softmax(QK^T / sqrt(d_k))V
+- Prompt Engineering and In-Context Learning: zero-shot, few-shot, and Chain-of-Thought (CoT).
+

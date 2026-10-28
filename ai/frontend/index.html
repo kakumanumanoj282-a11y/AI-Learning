@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AI Engineer Learning OS</title>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/styles.css?v=2.2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Navigation Bar matching reference screenshot -->
+  <header class="app-header">
+    <div class="header-left">
+      <b class="brand-title" onclick="App.navigate('dashboard')" style="cursor: pointer;">AI Engineer Learning OS</b>
+    </div>
+
+    <nav class="header-nav">
+      <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+      <button class="nav-btn" data-view="roadmap">Roadmap</button>
+      <button class="nav-btn" data-view="topics">My Topics</button>
+      <button class="nav-btn" data-view="upload">Upload Notes</button>
+      <button class="nav-btn" data-view="learn">Learn a Topic</button>
+      <button class="nav-btn" data-view="practice">Practice & Quizzes</button>
+      <button class="nav-btn" data-view="projects">Projects</button>
+      <button class="nav-btn" data-view="revision">
+        Revision <span class="nav-pill-count" id="header-rev-count" style="display: none;">0</span>
+      </button>
+      <button class="nav-btn" data-view="analytics">Analytics</button>
+      <button class="nav-btn" data-view="settings">Settings</button>
+    </nav>
+
+    <div class="header-right">
+      <div class="search-mini" onclick="document.getElementById('global-search-input').focus();">
+        <input type="text" id="global-search-input" placeholder="Search (Press /)" autocomplete="off">
+        <kbd>/</kbd>
+      </div>
+      <span class="user-pill">kakumanu-manoj</span>
+      <button class="btn-theme" id="theme-toggle-btn" title="Toggle Theme">Theme</button>
+      <button class="btn-theme" onclick="App.navigate('settings')">Reset</button>
+    </div>
+  </header>
+
+  <!-- Main View Container -->
+  <main id="main-content-area">
+    <!-- 1. DASHBOARD VIEW -->
+    <section id="view-dashboard" class="view-panel active"></section>
+
+    <!-- 2. LEARNING ROADMAP VIEW -->
+    <section id="view-roadmap" class="view-panel"></section>
+
+    <!-- 3. MY TOPICS VIEW -->
+    <section id="view-topics" class="view-panel"></section>
+
+    <!-- 4. UPLOAD STUDY MATERIALS VIEW -->
+    <section id="view-upload" class="view-panel"></section>
+
+    <!-- 5. LEARN A TOPIC VIEW -->
+    <section id="view-learn" class="view-panel"></section>
+
+    <!-- 6. PRACTICE & QUIZZES VIEW -->
+    <section id="view-practice" class="view-panel"></section>
+
+    <!-- 7. HANDS-ON PROJECTS VIEW -->
+    <section id="view-projects" class="view-panel"></section>
+
+    <!-- 8. REVISION CENTER VIEW -->
+    <section id="view-revision" class="view-panel"></section>
+
+    <!-- 9. PROGRESS ANALYTICS VIEW -->
+    <section id="view-analytics" class="view-panel"></section>
+
+    <!-- 10. SETTINGS & EXPORT VIEW -->
+    <section id="view-settings" class="view-panel"></section>
+  </main>
+
+  <!-- Global Modal Container -->
+  <div class="modal-overlay" id="global-modal-overlay">
+    <div class="modal-card" id="global-modal-content"></div>
+  </div>
+
+  <!-- Search Results Dropdown -->
+  <div class="search-results-floating" id="search-results-box"></div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts with cache buster -->
+  <script src="/js/static_roadmap_data.js?v=2.2"></script>
+  <script src="/js/api.js?v=2.2"></script>
+  <script src="/js/roadmap_view.js?v=2.2"></script>
+  <script src="/js/lesson_view.js?v=2.2"></script>
+  <script src="/js/upload_view.js?v=2.2"></script>
+  <script src="/js/practice_view.js?v=2.2"></script>
+  <script src="/js/projects_view.js?v=2.2"></script>
+  <script src="/js/app.js?v=2.2"></script>
+</body>
+</html>
